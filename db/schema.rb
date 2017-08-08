@@ -14,7 +14,29 @@ ActiveRecord::Schema.define(version: 20170808004900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  
+  
+  create_table "code_classes", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "max_students"
+    t.integer "min_students"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.string "phone"
+    t.integer "employee_id"
+    t.string "start_time"
+    t.string "end_time"
+    t.string "start_date"
+    t.string "end_date"
+    t.decimal "price", precision: 9, scale: 2
 
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
   create_table "employees", force: :cascade do |t|
     t.string "user_type"
     t.string "first_name"
@@ -30,6 +52,21 @@ ActiveRecord::Schema.define(version: 20170808004900) do
     t.string "state"
     t.integer "zip"
   end
+  
+  create_table "guardians", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "home_phone"
+    t.string "cell_phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "location_type"
@@ -39,6 +76,15 @@ ActiveRecord::Schema.define(version: 20170808004900) do
     t.string "city"
     t.string "state"
     t.integer "zip"
+  end
+   
+  create_table "student_class_lists", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "code_classes_id"
+    t.integer "employee_id"
+    
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

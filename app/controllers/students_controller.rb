@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 
   def index
-    
+   @student = Student.all 
   end
 
   def new
@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -24,6 +25,7 @@ class StudentsController < ApplicationController
   end
 
   def destroy 
+
   end 
 
 end

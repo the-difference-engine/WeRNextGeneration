@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20170808004900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   
-  
   create_table "code_classes", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -79,6 +78,29 @@ ActiveRecord::Schema.define(version: 20170808004900) do
     
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+  
+  create_table "students", force: :cascade do |t|
+    t.string "user_name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "medications"
+    t.string "medical_condition"
+    t.string "img"
+    t.string "img_release"
+    t.string "birth_date"
+    t.string "gender"
+    t.string "race"
+    t.string "emergency_contact"
+    t.string "emergency_contact_name"
+    t.string "emergency_contact_phone"
+    t.integer "guardian_id"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
   end
 
   create_table "student_class_lists", force: :cascade do |t|

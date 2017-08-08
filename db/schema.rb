@@ -15,6 +15,30 @@ ActiveRecord::Schema.define(version: 20170808011141) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "guardians", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "home_phone"
+    t.string "cell_phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_class_lists", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "code_classes_id"
+    t.integer "employee_id"
+    
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "code_classes", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -31,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170808011141) do
     t.string "start_date"
     t.string "end_date"
     t.decimal "price", precision: 9, scale: 2
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

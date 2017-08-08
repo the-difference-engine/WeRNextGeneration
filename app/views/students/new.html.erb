@@ -1,1 +1,55 @@
-<h1>new form</h1>
+<h1>New Student</h1>
+
+<%= form_tag '/students', method: :post do %>
+  
+  <div class="form-group">
+   <%= text_field_tag :first_name, nil, placeholder: "First Name"  %> 
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :last_name, nil, placeholder: "Last Name" %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= text_field_tag :user_name, nil, placeholder: "Username" %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= text_area_tag :medical_condition, nil, placeholder: "Please provide any known meidical conditions:" %>
+  </div>
+  <div class="form-group">
+   <%= text_area_tag :medications, nil, placeholder: "Medication(s)" %>
+  </div>
+  <div class="form-group">
+    <%= text_field_tag :birth_date, nil, placeholder: "Birthdate (MM/DD/YY)" %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= text_field_tag :gender, nil, placeholder: "Gender" %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= text_field_tag :race, nil, placeholder: "Race" %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= text_field_tag :emergency_contact_name, nil, placeholder: "Emergency Contact" %>
+    <%= text_field_tag :emergency_contact_phone, nil, placeholder: "Number" %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= text_field_tag :address, nil, placeholder: "Address" %>
+  
+    <%= text_field_tag :city, nil, placeholder: "City" %>
+  
+    <%= text_field_tag :state, nil, placeholder: "State" %>
+  
+    <%= text_field_tag :zip, nil, placeholder: "Zip" %>
+  </div>
+
+<% end %>

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
  delete '/students/:id' => 'students#destroy'
  
-
   # employees routes
 
  get '/employees' => 'employees#index'
@@ -29,7 +28,7 @@ Rails.application.routes.draw do
 
  delete '/employees/:id' => 'employees#destroy'
 
- 
+
  # locations routes
 
  get '/locations' => 'locations#index'
@@ -71,4 +70,5 @@ Rails.application.routes.draw do
  patch '/code_classes/:id' => 'code_classes#update'
 
  delete '/code_classes/:id' => 'code_classes#destroy'
+
 end

@@ -46,11 +46,12 @@ ActiveRecord::Schema.define(version: 20170808004900) do
     t.string "address"
     t.string "image"
     t.string "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "city"
     t.string "state"
     t.integer "zip"
+    
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
   
   create_table "guardians", force: :cascade do |t|
@@ -64,20 +65,22 @@ ActiveRecord::Schema.define(version: 20170808004900) do
     t.string "state"
     t.string "zip"
     t.integer "student_id"
+    
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
+  create_table "locations", force: :cascade do |t|
+    t.string "location_type"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "location_type"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "city"
-    t.string "state"
-    t.integer "zip"
-  end
-   
   create_table "student_class_lists", force: :cascade do |t|
     t.integer "student_id"
     t.integer "code_classes_id"

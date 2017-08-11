@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
                                 user_type: params[:user_type],
                                 first_name: params[:first_name],
                                 last_name: params[:last_name],
-                                email: params[:email],
+                                # email: params[:email], migrated out of schema due to devise--may be ok written as is
                                 phone: params[:phone],
                                 address: params[:address],
                                 city: params[:city],
@@ -37,7 +37,7 @@ class EmployeesController < ApplicationController
                                         user_type: params[:user_type],
                                         first_name: params[:first_name],
                                         last_name: params[:last_name],
-                                        email: params[:email],
+                                        # email: params[:email], migrated out of schema due to devise--may be ok written as is
                                         phone: params[:phone],
                                         address: params[:address],
                                         city: params[:city],

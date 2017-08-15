@@ -1,0 +1,23 @@
+<h1>Code Classes</h1>
+
+<section>
+  <div class="row">
+    <% @code_classes.each do |code_class| %>
+
+      <h3><%= link_to code_class.title, "/code_classes/#{code_class.id}" %></h3>
+      <h4>Description: <%= code_class.description %></h4>
+      <h4>Maximum number of students: <%= code_class.max_students %></h4>
+      <h4>Minimum number of students: <%= code_class.min_students %></h4>
+      <h4>Address: <%= code_class.address %></h4>
+      <h4>City: <%= code_class.city %></h4>
+      <h4>State: <%= code_class.state %></h4>
+      <h4>Zip: <%= code_class.zip %></h4>
+      <h4>Phone: <%= code_class.phone %></h4>
+      <h4>Instructor ID: <%= code_class.instructor_id %></h4>
+      <h4>Start Time: <%= code_class.start_time %></h4>
+      <h4>End Time: <%= code_class.end_time %></h4>
+      <h4>Start Date: <%= code_class.start_date %></h4>
+      <h4>End Date: <%= code_class.end_date %></h4>
+      <h4>Price: <%= number_to_currency(product.price) %></h4>
+    </div>
+  <% end %>

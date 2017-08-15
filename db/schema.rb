@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170815013738) do
   enable_extension "plpgsql"
 
   create_table "camps", force: :cascade do |t|
+
     t.string "title"
     t.string "description"
     t.integer "max_students"
@@ -66,6 +67,11 @@ ActiveRecord::Schema.define(version: 20170815013738) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "location_type"
     t.string "address"
@@ -105,6 +111,21 @@ ActiveRecord::Schema.define(version: 20170815013738) do
     t.string "city"
     t.string "state"
     t.integer "zip"
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "user_type"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.string "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

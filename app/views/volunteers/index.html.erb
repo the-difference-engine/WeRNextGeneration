@@ -1,0 +1,10 @@
+<h2>Current Volunteers:</h2>
+
+<% @volunteers.each do |volunteer|%>
+<%= volunteer.image %>
+<h3>Name:<%= volunteer.first_name %></h3>
+<h4>Contact Information:</h4>
+<%= volunteer.email %>
+<%= volunteer.phone %>
+<br>
+<% end %>

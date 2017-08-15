@@ -1,0 +1,52 @@
+<h1>Create a new camp</h1>
+
+<%= form_tag "/camp", method: :post do %>
+  <div>
+    Title: <input type="text" name="title", value="<%= @Camp.title %>">
+  </div>
+  <div>
+    Description: <input type="text" name="description", value="<%= @Camp.description %>">
+  </div>
+  <div> 
+    Maximum number of students: <input type="integer" name="max_students", value="<%= @Camp.max_students %>">
+  </div>
+  <div>
+    Minimum number of students: <input type="integer" name="min_students", value="<%= @Camp.min_students %>">
+  </div>
+  <div>
+    Address: <input type="text" name="address", value="<%= @Camp.address %>">
+  </div>
+  <div>
+    City: <input type="text" name="city", value="<%= @Camp.city %>">
+  </div>
+  <div>
+    State: <input type="text" name="state", value="<%= @Camp.state %>">
+  </div>
+  <div>
+    Zip: <input type="integer" name="zip", value="<%= @Camp.zip %>">
+  </div>
+  <div>
+    Phone: <input type="text" name="phone", value="<%= @Camp.phone %>">
+  </div>
+  <div>
+    Employee ID: <input type="integer" name="employee_id", value="<%= @Camp.employee_id %>">
+  </div>
+  <div>
+    Start Time: <input type="text" name="start_time", value="<%= @Camp.start_time %>">
+  </div>
+  <div>
+    End Time: <input type="text" name="end_time", value="<%= @Camp.end_time %>">
+  </div>
+  <div>
+    Start Date: <input type="text" name="start_date", value="<%= @Camp.start_date %>">
+  </div>
+  <div>
+    End Date: <input type="text" name="end_date", value="<%= @Camp.end_date %>">
+  </div>
+  <div>
+    Price: <input type="decimal" name="price", value="<%= @Camp.price %>">
+  </div>
+
+  <input type="Submit" value="Create New Camp">
+
+<% end %>

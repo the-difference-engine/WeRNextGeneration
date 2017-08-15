@@ -1,19 +1,19 @@
 <h1>Become a Volunteer</h1>
 
-<%= form_tag '/Volunteers', method: :post do %>
+<%= form_tag '/volunteers', method: :post do %>
 
     <%= label_tag :first_name %>
     <%= text_field_tag :first_name, nil  %>
 
     <%= label_tag :last_name %>
     <%= text_field_tag :last_name, nil %>
-
+<br>
      <%= label_tag :email %>
     <%= text_field_tag :email, nil %>    
 
     <%= label_tag :phone %>
     <%= text_field_tag :phone, nil %>    
-
+<br>
     <%= label_tag :address %>
     <%= text_field_tag :address, nil %>    
 
@@ -25,10 +25,10 @@
 
     <%= label_tag :zip %>
     <%= text_field_tag :zip, nil %>  
-
+<br>
     <%= label_tag :image %>
     <%= text_field_tag :image, nil %>    
-
+<br>
     <%= label_tag :bio %>
     <%= text_field_tag :bio, nil %>     
 

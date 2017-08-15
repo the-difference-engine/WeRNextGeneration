@@ -1,0 +1,22 @@
+<div>
+Image: <%= @employee.image %>
+First Name: <%= @employee.first_name %>
+Last Name: <%= @employee.last_name %>
+Bio: <%= @employee.bio %>
+Email: <%= @employee.email %>
+Phone Number: <%= @employee.phone %>
+Address: <%= @employee.address %>
+        <%= @employee.city %>
+        <%= @employee.state %>
+        <%= @employee.zip %>
+</div>
+<% link_to "Edit Profile", '/employees/<%= @employee.id %>/edit' %>
+
+<% if current_employee.user_type == "partner" %>
+Add Your Company Logo
+    <%= form_tag '/' %>
+        
+    <% end %>
+
+
+<% end %>

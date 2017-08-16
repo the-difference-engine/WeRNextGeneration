@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  devise_for :guardians
+  devise_for :employees
+  
+  get 'home/index'
+  root 'home#index'
+
   # students routes
 
  get '/students' => 'students#index'

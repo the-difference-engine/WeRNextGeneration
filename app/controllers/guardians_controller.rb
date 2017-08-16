@@ -12,7 +12,7 @@ class GuardiansController < ApplicationController
     guardian = Guardian.new(
                               first_name: params[:first_name],
                               last_name: params[:last_name],
-                              email: params[:email],
+                              # email: params[:email], migrated out of schema due to devise--may be ok written as is
                               home_phone: params[:home_phone],
                               cell_phone: params[:cell_phone],
                               address: params[:address],
@@ -36,7 +36,7 @@ class GuardiansController < ApplicationController
     guardian.assign_attributes(
                               first_name: params[:first_name],
                               last_name: params[:last_name],
-                              email: params[:email],
+                              # email: params[:email], migrated out of schema due to devise--may be ok written as is
                               home_phone: params[:home_phone],
                               cell_phone: params[:cell_phone],
                               address: params[:address],

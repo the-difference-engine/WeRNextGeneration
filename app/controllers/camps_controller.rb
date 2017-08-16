@@ -1,17 +1,17 @@
-class CodeClassesController < ApplicationController
+class CampsController < ApplicationController
   
   def index
-    @code_class = CodeClass.all
+    @camp = Camp.all
 
 
   end
 
   def new
-    @code_class = CodeClass.new
+    @camp = Camp.new
   end
 
   def create
-    @code_class = CodeClass.new(
+    @camp = Camp.new(
                                 title: params[:title],
                                 description: params[:description],
                                 max_students: params[:max_students],
@@ -32,17 +32,17 @@ class CodeClassesController < ApplicationController
   end
 
   def show
-    code_class = params[:id]
-    @code_class = CodeClass.find_by(id: code_class)
+    camp = params[:id]
+    @camp = Camp.find_by(id: camp)
   end
 
   def edit
-    @code_class = CodeClass.find(params[:id])
+    @camp = Camp.find(params[:id])
   end
 
   def update
-    code_class = CodeClass.find(params[:id])
-    code_class.assign_attributes(
+    camp = Camp.find(params[:id])
+    camp.assign_attributes(
                                   title: params[:title],
                                   description: params[:description],
                                   max_students: params[:max_students],
@@ -59,12 +59,14 @@ class CodeClassesController < ApplicationController
                                   end_date: params[:end_date],
                                   price: params[:price]
                                   )
-    code_class.save
+    camp.save
   end
 
   def destroy
-    code_class = CodeClass.find(params[:id])
-    code_class.destroy
+    camp = Camp.find(params[:id])
+    camp.destroy
   end
+
+end
 
 end

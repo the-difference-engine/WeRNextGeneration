@@ -34,6 +34,19 @@ Rails.application.routes.draw do
 
  delete '/employees/:id' => 'employees#destroy'
 
+# volunteers routes
+
+get '/volunteers' => 'volunteers#index'
+
+get '/volunteers/new' => 'volunteers#new'
+post '/volunteers' => 'volunteers#create'
+
+get 'volunteers/:id' => 'volunteers#show'
+
+get 'volunteers/:id/edit' => 'volunteers#edit'
+patch 'volunteers/:id' => 'volunteers#update'
+
+delete 'volunteers/:id' => 'volunteers#destroy'
 
  # locations routes
 

@@ -12,6 +12,8 @@ Address: <%= @employee.address %>
 </div>
 <% link_to "Edit Profile", '/employees/<%= @employee.id %>/edit' %>
 
+
+
 <% if current_employee.user_type == "partner" %>
 Add Your Company Logo
     <%= form_tag '/' %>

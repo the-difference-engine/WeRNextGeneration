@@ -1,0 +1,38 @@
+<div>
+Image: <%= @employee.image %>
+First Name: <%= @employee.first_name %>
+Last Name: <%= @employee.last_name %>
+Bio: <%= @employee.bio %>
+Email: <%= @employee.email %>
+Phone Number: <%= @employee.phone %>
+Address: <%= @employee.address %>
+        <%= @employee.city %>
+        <%= @employee.state %>
+        <%= @employee.zip %>
+</div>
+<% link_to "Edit Profile", '/employees/<%= @employee.id %>/edit' %>
+
+<% if current_employee.user_type == "partner" %>
+Add Your Company Logo
+    <%= form_tag '/employees/<%= @employee.id %>' method: :post do %>
+    	<input type="text-field" name="company_logo">
+    <% end %>
+        
+<% end %>
+
+<%= if current_employee.user_type == "employee" %>
+	<%= link_to 'Edit Homepage', '/home/edit' %>
+<% end %>
+
+<%= if current_employee.user_type == "admin" %>
+	<% @guardian_pending.each do | guardian | %>
+			guardian.first_name
+			guardian.last_name
+			<%= link_to '#{guardian.first_name guardian.last_name}', '/guardians/#{guardian.id}' %>
+			guardian.created_at
+			guardian.status
+			<input type="Submit" name="Approve">	
+	<% end %>	
+<% end %>
+
+<% end %>

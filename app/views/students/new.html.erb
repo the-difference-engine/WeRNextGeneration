@@ -37,7 +37,7 @@
   <br>
 
   <div class="form-group">
-    <%= text_field_tag :emergency_contact_name, nil, placeholder: "Emergency Contact" %>
+    <%= text_field_tag :emergency_contact, nil, placeholder: "Emergency Contact" %>
     <%= text_field_tag :emergency_contact_phone, nil, placeholder: "Number" %>
   </div>
   <br>
@@ -51,5 +51,7 @@
   
     <%= text_field_tag :zip, nil, placeholder: "Zip" %>
   </div>
+  <br>
+  <%= submit_tag "Add Student" %>
 
 <% end %>

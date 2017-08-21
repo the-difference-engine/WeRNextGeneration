@@ -1,0 +1,12 @@
+<h2>Welcome <%= @current_guardian %></h1>
+
+<!-- calendar goes here someday -->
+
+<h3>Sign up your Student: <a href="/students/new">HERE</h3>
+
+<h3>Your Child(ren)</h3>
+
+<h4> <%= @current_guardian.students.each do |student| %></h4>
+  <h4><a href="/students/<%= student.id %>"><%= student.fist_name %></h4>
+
+<% end %>

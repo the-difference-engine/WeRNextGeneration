@@ -1,0 +1,36 @@
+<h1>Sign up page</h1>
+ 
+<%= form_tag '/employees', method: :post do %>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name, nil %>
+
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, nil %>
+
+    <%= label_tag :email %>
+    <%= text_field_tag :email, nil %>    
+
+    <%= label_tag :phone %>
+    <%= text_field_tag :phone, nil %>    
+
+    <%= label_tag :address %>
+    <%= text_field_tag :address, nil %>    
+
+    <%= label_tag :city %>
+    <%= text_field_tag :city, nil %>    
+
+    <%= label_tag :state %>
+    <%= text_field_tag :state, nil %>    
+
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip, nil %>  
+
+    <%= label_tag :image %>
+    <%= text_field_tag :image, nil %>    
+
+    <%= label_tag :bio %>
+    <%= text_field_tag :bio, nil %>     
+
+    <%= submit_tag "Submit" %> 
+
+<% end %>

@@ -25,6 +25,7 @@ class EmployeesController < ApplicationController
 
     def show
         @employee = Employee.find_by(params[:id])
+        @guardian_pending = employees.camps.students.guardian(where :status == "pending");
     end
 
     def edit

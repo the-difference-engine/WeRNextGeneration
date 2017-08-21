@@ -14,9 +14,27 @@ Address: <%= @employee.address %>
 
 <% if current_employee.user_type == "partner" %>
 Add Your Company Logo
+    <%= form_tag '/employees/<%= @employee.id %>' method: :post do %>
+    	<input type="text-field" name="company_logo">
+    <% end %>
+        
+<% end %>
+
+<%= if current_employee.user_type == "employee" %>
+	<%= link_to 'Edit Homepage', '/home/edit' %>
+<% end %>
+
+<%= if current_employee.user_type == "admin" %>
+	<% @guardian_pending.each do | guardian | %>
+			guardian.first_name
+			guardian.last_name
+			<%= link_to '#{guardian.first_name guardian.last_name}', '/guardians/#{guardian.id}' %>
+			guardian.created_at
+			guardian.status
+			<input type="Submit" name="Approve">	
+	<% end %>	
+<% end %>
+
     <%= form_tag '/' %>
         
     <% end %>
-
-
-<% end %>

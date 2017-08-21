@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815013738) do
+ActiveRecord::Schema.define(version: 20170821233112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20170815013738) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "user_type"
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
@@ -63,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170815013738) do
     t.boolean "manager", default: false
     t.boolean "volunteer", default: false
     t.string "status"
+    t.string "company_logo"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
@@ -130,7 +130,6 @@ ActiveRecord::Schema.define(version: 20170815013738) do
     t.string "gender"
     t.string "race"
     t.string "emergency_contact"
-    t.string "emergency_contact_name"
     t.string "emergency_contact_phone"
     t.integer "guardian_id"
     t.string "address"

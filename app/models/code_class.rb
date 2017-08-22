@@ -1,3 +1,0 @@
-class CodeClass < ApplicationRecord
-    
-end

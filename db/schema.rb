@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170821233112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "camps", force: :cascade do |t|
+  create_table "code_classes", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "max_students"

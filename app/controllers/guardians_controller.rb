@@ -1,7 +1,7 @@
 class GuardiansController < ApplicationController
 
   def index
-    @guardians = Guardians.all
+    @guardians = Guardian.all
   end
 
   def new

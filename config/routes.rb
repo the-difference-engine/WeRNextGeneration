@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :guardians, :controllers => {:registration => 'guardians'}
+  devise_for :guardians, controllers: { sessions: 'guardians/sessions'}
+
   devise_for :employees
   
   get 'home/index'  
-  root 'home#index'
+  # root 'home#index'
 
   # students routes
 

@@ -1,13 +1,29 @@
- <!-- Find me in app/views/home/index.html.erb -->
-
-<!-- Until we figure out the navigation... -->
 <ul>
-  <li> 
-    <%= link_to "sign up employee", new_employee_registration_path %>
-  </li>
-  <li>
-    <%= link_to "sign up guardian", new_guardian_registration_path %>
-  </li>
+  <% if guardian_signed_in? %>
+    <li>
+      <%= link_to "Sign Out", destroy_guardian_session_path, method: :delete %>
+    </li>
+   <% elsif employee_signed_in? %> 
+    <li>
+      <%= link_to "Sign Out", destroy_employee_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "Sign Guardian In", new_guardian_session_path %>
+    </li>
+    <li>
+      <%= link_to "Sign Employee In", new_employee_session_path %>
+      
+    </li>
+
+    <li>
+      <%= link_to "sign up employee", new_employee_registration_path %>
+    </li>
+
+    <li>
+      <%= link_to "sign up guardian", new_guardian_registration_path %>
+    </li>
+  <% end %>
 </ul>
 
 <h2>WE’RE THE CHARITY THAT INSPIRES</h2>
@@ -25,3 +41,4 @@
 
 <h2>THE ACTIVITY</h2>
 <p>Our Creativity Challenge Camp program is a platform for a young dreamer to exercise the use of his creative power in building his impossible imagination without being stopped by all encountered failures, but rather to accomplish his personal success. This program, an introductory 8-session event, provides the kick-start needed for a child to begin taking immediate actions, and developing generous and steadfast habits that achieve success.</p>
+

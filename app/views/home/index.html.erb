@@ -3,17 +3,30 @@
 
 
 
-
-
 <ul>
-<li>
-  
-  <%= link_to "sign up employee", new_employee_registration_path %>
-</li>
+  <% if guardian_signed_in? %>
+    <li>
+      <%= link_to "Sign Out", destroy_guardian_session_path, method: :delete %>
+    </li>
+   <% elsif employee_signed_in? %> 
+    <li>
+      <%= link_to "Sign Out", destroy_employee_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "Sign Guardian In", new_guardian_session_path %>
+    </li>
+    <li>
+      <%= link_to "Sign Employee In", new_employee_session_path %>
+      
+    </li>
 
-<li>
-  
-  <%= link_to "sign up guardian", new_guardian_registration_path %>
-</li>
+    <li>
+      <%= link_to "sign up employee", new_employee_registration_path %>
+    </li>
 
+    <li>
+      <%= link_to "sign up guardian", new_guardian_registration_path %>
+    </li>
+  <% end %>
 </ul>

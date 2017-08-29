@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-
+gem 'rails_12factor', group::production
 gem 'devise'
 
 # Use Capistrano for deployment

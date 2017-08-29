@@ -77,18 +77,18 @@ delete 'volunteers/:id' => 'volunteers#destroy'
 
  delete '/guardians/:id' => 'guardians#destroy'
 
- # code_classes routes
+ # camps routes
 
- get '/code_classes' => 'code_classes#index'
+ get '/camps' => 'camps#index'
 
- get '/code_classes/new' => 'code_classes#new'
- post '/code_classes' => 'code_classes#create'
+ get '/camps/new' => 'camps#new'
+ post '/camps' => 'camps#create'
 
- get '/code_classes/:id' => 'code_classes#show'
+ get '/camps/:id' => 'camps#show'
 
- get '/code_classes/:id/edit' => 'code_classes#edit'
- patch '/code_classes/:id' => 'code_classes#update'
+ get '/camps/:id/edit' => 'camps#edit'
+ patch '/camps/:id' => 'camps#update'
 
- delete '/code_classes/:id' => 'code_classes#destroy'
+ delete '/camps/:id' => 'camps#destroy'
 
 end

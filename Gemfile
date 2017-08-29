@@ -47,6 +47,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.5'
+  gem 'bootstrap-sass', '~> 3.3.6'
+  gem 'jquery-rails', '~> 4.3.1'
 end
 
 group :development do

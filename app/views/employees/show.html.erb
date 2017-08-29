@@ -34,14 +34,23 @@ Add Your Company Logo
             <th>Bio</th>
             <th>Created At</th>
             <th>Status</th>
+            <% if current_employee.user_type == "super_admin" %>
+            <th>Update User</th>
+            <th>Delete User</th>
+            <% end %>
         </tr>
         <% @guardian_pending.each do | guardian | %>
     			<tr>
                     <td>guardian.first_name</td>
     			     <td>guardian.last_name</td>
-    			     <td><%= link_to '#{guardian.first_name guardian.last_name}', '/guardians/#{guardian.id}' %></td>
+    			     <td><%= link_to "#{guardian.first_name guardian.last_name}", "/guardians/#{guardian.id}" %></td>
     			     <td>guardian.created_at</td>
     			     <td>guardian.status</td>
+                    <% if current_employee.user_type == "super_admin" %>
+                    <td><%= link_to "Update", "/guardians/#{guardian.id}/edit" %></td>
+                    <td><%= link to "Delete", "/guardians/#{guardian.id}", method: :destroy %></td>
+                    <% end %>
+
                 </tr>
     			<input type="Submit" name="Approve">	
     	<% end %>
@@ -54,6 +63,10 @@ Add Your Company Logo
             <th>Bio</th>
             <th>Created At</th>
             <th>Status</th>
+            <% if current_employee.user_type == "super_admin" %>
+            <th>Update</th>
+            <th>Delete</th>
+            <% end %>
         </tr>
         <% @volunteer_pending.each do | volunteer | %>
                 <tr>
@@ -61,7 +74,11 @@ Add Your Company Logo
                      <td>volunteer.last_name</td>
                      <td><%= link_to '#{volunteer.first_name volunteer.last_name}', '/volunteers/#{volunteer.id}' %></td>
                      <td>volunteer.created_at</td>
-                     <td>volunteer.status</td>
+                     <td>volunteer.status</td>                    
+                     <% if current_employee.user_type == "super_admin" %>
+                    <td><%= link_to "Update", "/volunteers/#{volunteer.id}/edit" %></td>
+                    <td><%= link to "Delete", "/volunteers/#{volunteer.id}", method: :destroy %></td>
+                    <% end %>
                 </tr>
                 <input type="Submit" name="Approve">    
         <% end %>
@@ -74,6 +91,10 @@ Add Your Company Logo
             <th>Bio</th>
             <th>Created At</th>
             <th>Status</th>
+            <% if current_employee.user_type == "super_admin" %>
+            <th>Update</th>
+            <th>Delete</th>
+            <% end %>
         </tr>
         <% @partner_pending.each do | partner | %>
                 <tr>
@@ -82,6 +103,10 @@ Add Your Company Logo
                      <td><%= link_to '#{partner.first_name partner.last_name}', '/partners/#{partner.id}' %></td>
                      <td>partner.created_at</td>
                      <td>partner.status</td>
+                    <% if current_employee.user_type == "super_admin" %>
+                    <td><%= link_to "Update", "/partners/#{partner.id}/edit" %></td>
+                    <td><%= link to "Delete", "/partners/#{partner.id}", method: :destroy %></td>
+                    <% end %>
                 </tr>
                 <input type="Submit" name="Approve">    
         <% end %>  
@@ -89,6 +114,4 @@ Add Your Company Logo
 
 <% end %>
 
-    <%= form_tag '/' %>
-        
-    <% end %>
+

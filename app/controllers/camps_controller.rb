@@ -28,12 +28,17 @@ class CampsController < ApplicationController
                                 end_date: params[:end_date],
                                 price: params[:price]
                                 )
-    
+    if @camp.save
+      flash[:success] = "Camp successfully saved."
+      redirect_to "/camps/#{camp.id}"
+    else
+      render 'new.html.erb'
+    end    
   end
 
   def show
     camp = params[:id]
-    @camp = Camp.find_by(id: camp)
+    @camp = Camp.find(params[:id])
   end
 
   def edit
@@ -41,8 +46,8 @@ class CampsController < ApplicationController
   end
 
   def update
-    camp = Camp.find(params[:id])
-    camp.assign_attributes(
+    @camp = Camp.find(params[:id])
+    @camp.assign_attributes(
                                   title: params[:title],
                                   description: params[:description],
                                   max_students: params[:max_students],
@@ -59,12 +64,21 @@ class CampsController < ApplicationController
                                   end_date: params[:end_date],
                                   price: params[:price]
                                   )
-    camp.save
+    if @camp.save
+      flash[:success] = "Camp successfully updated."
+      redirect_to "/camps/#{camp.id}"
+    else
+      render 'new.html.erb'
+    end
   end
 
   def destroy
-    camp = Camp.find(params[:id])
-    camp.destroy
+    @camp = Camp.find(params[:id])
+    @camp.destroy
+      if @camp.destroy
+          flash[:warning] = "Camp deleted."
+          redirect_to "/"
+      end
   end
 
 end

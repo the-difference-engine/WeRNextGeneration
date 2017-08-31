@@ -1,0 +1,23 @@
+<%= if current_employee.user_type == "admin" %>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Bio</th>
+            <th>Created At</th>
+            <th>Status</th>
+            <th>Current Camp</th>
+        </tr>
+        <% @employees.each do | employee | %>
+                <tr>
+                    <td>employee.first_name</td>
+                     <td>employee.last_name</td>
+                     <td><%= link_to '#{employee.first_name employee.last_name}', '/employees/#{employee.id}' %></td>
+                     <td>employee.created_at</td>
+                     <td>employee.status</td>
+                     <td></td>
+                </tr>
+                <input type="Submit" name="Approve">    
+        <% end %>
+    </table>
+<% end %>

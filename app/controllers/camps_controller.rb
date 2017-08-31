@@ -2,8 +2,6 @@ class CampsController < ApplicationController
   
   def index
     @camp = Camp.all
-
-
   end
 
   def new
@@ -37,7 +35,6 @@ class CampsController < ApplicationController
   end
 
   def show
-    camp = params[:id]
     @camp = Camp.find(params[:id])
   end
 
@@ -67,8 +64,6 @@ class CampsController < ApplicationController
     if @camp.save
       flash[:success] = "Camp successfully updated."
       redirect_to "/camps/#{camp.id}"
-    else
-      render 'new.html.erb'
     end
   end
 
@@ -76,11 +71,9 @@ class CampsController < ApplicationController
     @camp = Camp.find(params[:id])
     @camp.destroy
       if @camp.destroy
-          flash[:warning] = "Camp deleted."
-          redirect_to "/"
+        flash[:warning] = "Camp deleted."
+        redirect_to "/"
       end
   end
-
 end
 
-end

@@ -8,6 +8,7 @@ class EmployeesController < ApplicationController
 
     def create
         employee = Employee.new(
+                                company_logo: params[:company_logo],
                                 user_type: params[:user_type],
                                 first_name: params[:first_name],
                                 last_name: params[:last_name],
@@ -25,6 +26,9 @@ class EmployeesController < ApplicationController
 
     def show
         @employee = Employee.find_by(params[:id])
+        @guardian_pending = employees.camps.students.guardian(where :status == "pending")
+        @volunteer_pending = employees.camps.volunteer(where :status == "pending")
+        @partner_pending = Partner.where(:status == "pending")
     end
 
     def edit
@@ -34,10 +38,11 @@ class EmployeesController < ApplicationController
     def update
         @employee = Employee.find_by(params[:id])
         @employee.assign_attributes(
+                                        company_logo: params[:company_logo],
                                         user_type: params[:user_type],
                                         first_name: params[:first_name],
                                         last_name: params[:last_name],
-                                        # email: params[:email], migrated out of schema due to devise--may be ok written as is
+                                      
                                         phone: params[:phone],
                                         address: params[:address],
                                         city: params[:city],

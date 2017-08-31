@@ -1,7 +1,7 @@
 class GuardiansController < ApplicationController
 
   def index
-    @guardians = Guardians.all
+    @guardians = Guardian.all
   end
 
   def new
@@ -9,6 +9,7 @@ class GuardiansController < ApplicationController
   end
 
   def create
+    p "*******************************"
     guardian = Guardian.new(
                               first_name: params[:first_name],
                               last_name: params[:last_name],
@@ -20,6 +21,9 @@ class GuardiansController < ApplicationController
                               state: params[:state],
                               zip: params[:zip]
                               )
+    guardian.save 
+    redirect_to "/students/new"
+
   end
 
   def show

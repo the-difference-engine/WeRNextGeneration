@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170815010136) do
+ActiveRecord::Schema.define(version: 20170822001430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +36,6 @@ ActiveRecord::Schema.define(version: 20170815010136) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.string "user_type"
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
@@ -49,7 +47,6 @@ ActiveRecord::Schema.define(version: 20170815010136) do
     t.string "city"
     t.string "state"
     t.integer "zip"
-
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -65,9 +62,10 @@ ActiveRecord::Schema.define(version: 20170815010136) do
     t.boolean "manager", default: false
     t.boolean "volunteer", default: false
     t.string "status"
+    t.string "company_logo"
+    t.integer "user_type"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
-
   end
 
   create_table "guardians", force: :cascade do |t|
@@ -102,23 +100,6 @@ ActiveRecord::Schema.define(version: 20170815010136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-  create_table "installs", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_installs_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
-  end
 
   create_table "locations", force: :cascade do |t|
     t.string "location_type"
@@ -150,7 +131,6 @@ ActiveRecord::Schema.define(version: 20170815010136) do
     t.string "gender"
     t.string "race"
     t.string "emergency_contact"
-    t.string "emergency_contact_name"
     t.string "emergency_contact_phone"
     t.integer "guardian_id"
     t.string "address"
@@ -160,18 +140,6 @@ ActiveRecord::Schema.define(version: 20170815010136) do
     t.string "state"
     t.integer "zip"
   end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
 
   create_table "volunteers", force: :cascade do |t|
     t.string "first_name"
@@ -186,8 +154,6 @@ ActiveRecord::Schema.define(version: 20170815010136) do
     t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -34,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-
+gem 'faker'
+gem 'rails_12factor', group: :production
 gem 'devise'
 
 # Use Capistrano for deployment
@@ -49,6 +50,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.5'
+  gem 'bootstrap-sass', '~> 3.3.6'
+  gem 'jquery-rails', '~> 4.3.1'
 end
 
 group :development do

@@ -1,0 +1,16 @@
+<h1>Current camps</h1>
+
+<section>
+  <div class="row">
+
+    <% @camps.each do |camp| %>
+
+      <h2><%= camp.title %></h2>
+      <h2><%= camp.description %></h2>
+      <h2><%= camp.start_date %></h2>
+      <h2><%= camp.end_time %></h2>
+      
+    <% end %>
+
+  </div>
+</section>

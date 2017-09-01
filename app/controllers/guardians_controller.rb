@@ -10,7 +10,7 @@ class GuardiansController < ApplicationController
 
   def create
     p "*******************************"
-    guardian = Guardian.new(
+    @guardian = Guardian.new(
                               first_name: params[:first_name],
                               last_name: params[:last_name],
                               # email: params[:email], migrated out of schema due to devise--may be ok written as is
@@ -21,14 +21,14 @@ class GuardiansController < ApplicationController
                               state: params[:state],
                               zip: params[:zip]
                               )
-    guardian.save 
+    @guardian.save 
     redirect_to "/students/new"
 
   end
 
   def show
-    guardian_id = params[:id]
-    @guardian = Guardian.find_by(id: guardian_id)
+    @guardian = Guardian.find_by(id: params[:id])
+
   end
 
   def edit
@@ -36,8 +36,8 @@ class GuardiansController < ApplicationController
   end
 
   def update
-    guardian = Guardian.find(params[:id])
-    guardian.assign_attributes(
+    @guardian = Guardian.find(params[:id])
+    @guardian.assign_attributes(
                               first_name: params[:first_name],
                               last_name: params[:last_name],
                               # email: params[:email], migrated out of schema due to devise--may be ok written as is
@@ -51,7 +51,7 @@ class GuardiansController < ApplicationController
   end
 
   def destroy
-    guardian = Guardian.find(params[:id])
+    @guardian = Guardian.find(params[:id])
     guardian.destroy
   end
 

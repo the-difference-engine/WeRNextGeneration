@@ -28,6 +28,7 @@ class EmployeesController < ApplicationController
             flash[:warning] = "Error: Please Try Again"
             render "/employees/new"
         end
+
     end
 
     def show
@@ -67,6 +68,7 @@ class EmployeesController < ApplicationController
     end
 
     def destroy
+
         @employee = Employee.find(params[:id])
         @employee.update(status: "inactive")
 

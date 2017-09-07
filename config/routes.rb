@@ -9,18 +9,32 @@ Rails.application.routes.draw do
 
   # students routes
 
- get '/students' => 'students#index'
+  get '/students' => 'students#index'
 
- get '/students/new' => 'students#new'
- post '/students' => 'students#create'
+  get '/students/new' => 'students#new'
+  post '/students' => 'students#create'
 
- get '/students/:id' => 'students#show'
+  get '/students/:id' => 'students#show'
 
- get '/students/:id/edit' => 'students#edit'
- patch '/students/:id' => 'students#update'
+  get '/students/:id/edit' => 'students#edit'
+  patch '/students/:id' => 'students#update'
 
- delete '/students/:id' => 'students#destroy'
- 
+  delete '/students/:id' => 'students#destroy'
+
+  # student class lists routes
+
+  get '/student_class_lists' => 'student_class_lists#index'
+
+  get '/student_class_lists/new' => 'student_class_lists#new'
+  post '/student_class_lists' => 'student_class_lists#create'
+
+  get '/student_class_lists/:id' => 'student_class_lists#show'
+
+  get '/student_class_lists/:id/edit' => 'student_class_lists#edit'
+  patch '/student_class_lists/:id' => 'student_class_lists#update'
+
+  delete '/student_class_lists/:id' => 'student_class_lists#destroy'
+
   # employees routes
 
  get '/employees' => 'employees#index'

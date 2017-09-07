@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
     end
 
     def create
-        employee = Employee.new(
+        @employee = Employee.new(
                                 company_logo: params[:company_logo],
                                 user_type: params[:user_type],
                                 first_name: params[:first_name],
@@ -21,7 +21,7 @@ class EmployeesController < ApplicationController
                                 image: params[:image],
                                 bio: params[:bio]
                                  )
-        employee.save
+       @employee.save
     end
 
     def show
@@ -56,7 +56,7 @@ class EmployeesController < ApplicationController
 
     def destroy
         @employee = Employee.find_by(params[:id])
-        employee.destroy
+        @employee.destroy
     end
     
 end

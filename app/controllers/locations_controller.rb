@@ -1,46 +1,68 @@
 class LocationsController < ApplicationController
     def index
-        @location = Location.all
+        @locations = Location.all
+        # adding the code below to showcase only active locations
+        # @locations = Location.where(status: true)
     end
 
     def new
     end
 
     def create
-        location = Location.new(
+        @location = Location.new(
                                  location_type: params[:location_type].
                                  address: params[:address],
                                  city: params[:city],
                                  state: params[:state],
-                                 zip: params[:zip]
+                                 zip: params[:zip],
+                                 status: true
                                  )
-        location.save
+        if @location.save
+            flash[:success] = "Location Successfully Created"
+            redirect_to "/locations"
+        else
+            flash[:warning] = "Error: Please Try Again"
+            render "/locations/#{@location.id}/new"
+        end
     end
 
     def show
-        @location = Location.find_by(params[:id])
+        @location = Location.find(params[:id])
     end
 
     def edit
-        @location_id = Location.find_by(params[:id])
+        @location = Location.find(params[:id])
 
     end
 
     def update
-        @location_id = Location.find_by(params[:id])
+        @location = Location.find(params[:id])
         @location = assign_attributes(
                                     location_type: params[:location_type],
                                     address: params[:address],
                                     city: params[:city],
                                     state: params[:state],
                                     zip: params[:zip]
+                                    status: true
                                     )
-        @location.save
+        if @location.save
+            flash[:success] = "Location Successfully Updated"
+            redirect_to "/locations"
+        else
+            flash[:warning] = "Error: Please Try Again"
+            render "/locations/#{@location.id}/edit"
+        end
     end
 
     def destroy
-        @location_id = Location.find_by(params[:id]
-        @location_id.destroy
+        @location = Location.find(params[:id]
+        @location.update(status: false)
+        if @location.save
+            flash[:success] = "Location Successfully Deleted"
+            redirect_to "/locations"
+        else
+            flash[:warning] = "Error: Please Try Again"
+            render "/locations/#{@location.id}"
     end
     
 end

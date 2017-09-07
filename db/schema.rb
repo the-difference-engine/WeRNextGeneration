@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822001430) do
+ActiveRecord::Schema.define(version: 20170901000409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.string "address"
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "zip"
     t.string "phone"
     t.integer "employee_id"
     t.string "start_time"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.decimal "price", precision: 9, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "country"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "zip"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.string "status"
     t.string "company_logo"
     t.integer "user_type"
+    t.string "country"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.inet "last_sign_in_ip"
     t.boolean "guardian", default: false
     t.string "status"
+    t.string "country"
     t.index ["email"], name: "index_guardians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guardians_on_reset_password_token", unique: true
   end
@@ -125,7 +128,8 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "zip"
+    t.string "country"
   end
 
   create_table "student_class_lists", force: :cascade do |t|
@@ -155,7 +159,8 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.datetime "updated_at", null: false
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "zip"
+    t.string "country"
   end
 
   create_table "users", force: :cascade do |t|
@@ -184,10 +189,11 @@ ActiveRecord::Schema.define(version: 20170822001430) do
     t.string "address"
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "zip"
     t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "country"
   end
 
 end

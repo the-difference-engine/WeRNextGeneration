@@ -1,3 +1,5 @@
+<div class="well">
+
 <h1> <%= @student.first_name %> <%= @student.last_name %></h1>
 
 <h4>Address:</h4>
@@ -23,3 +25,5 @@
 <%= link_to "Edit Information", "/students/#{ @student.id}/edit"%>
 <br>
 <%= link_to "Remove Student", "/students/#{ @student.id }", method: :delete %>
+
+</div>

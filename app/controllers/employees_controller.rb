@@ -3,11 +3,11 @@ class EmployeesController < ApplicationController
         @employees = Employee.all
     end
 
-    def new       
+    def new    
     end
 
     def create
-        employee = Employee.new(
+        @employee = Employee.new(
                                 company_logo: params[:company_logo],
                                 user_type: params[:user_type],
                                 first_name: params[:first_name],
@@ -21,22 +21,29 @@ class EmployeesController < ApplicationController
                                 image: params[:image],
                                 bio: params[:bio]
                                  )
-        employee.save
+        if @employee.save
+            flash[:success] = "Employee Successfully Created"
+            redirect_to "/employees"
+        else
+            flash[:warning] = "Error: Please Try Again"
+            render "/employees/new"
+        end
+
     end
 
     def show
-        @employee = Employee.find_by(params[:id])
-        @guardian_pending = employees.camps.students.guardian(where :status == "pending")
-        @volunteer_pending = employees.camps.volunteer(where :status == "pending")
-        @partner_pending = Partner.where(:status == "pending")
+        @employee = Employee.find(params[:id])
+        # @guardian_pending = employees.camps.students.guardian(where :status == "pending")
+        # @volunteer_pending = employees.camps.volunteer(where :status == "pending")
+        # @partner_pending = Partner.where(:status == "pending")
     end
 
     def edit
-        @employee = Employee.find_by(params[:id])
+        @employee = Employee.find(params[:id])
     end
 
     def update
-        @employee = Employee.find_by(params[:id])
+        @employee = Employee.find(params[:id])
         @employee.assign_attributes(
                                         company_logo: params[:company_logo],
                                         user_type: params[:user_type],
@@ -51,12 +58,28 @@ class EmployeesController < ApplicationController
                                         image: params[:image],
                                         bio: params[:bio]
                                     )
-        @employee.save
+        if @employee.save
+            flash[:success] = "Employee Successfully Updated"
+            redirect_to "/employees"
+        else
+            flash[:warning] = "Error: Please Try Again"
+            render "/employee/#{@employee.id}/edit"
+        end
     end
 
     def destroy
-        @employee = Employee.find_by(params[:id])
-        employee.destroy
+
+        @employee = Employee.find(params[:id])
+        @employee.update(status: "inactive")
+
+        if @employee.save
+            flash[:success] = "Employee Deleted"
+            redirect_to "/employees"
+        else
+            flash[:warning] = "Error: Please try again"
+            render "/employees/#{@employee.id}"
+        end
+
     end
     
 end

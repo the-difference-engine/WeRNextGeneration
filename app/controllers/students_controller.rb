@@ -23,7 +23,7 @@ class StudentsController < ApplicationController
                           race: params[:race],
                           emergency_contact: params[:emergency_contact],
                           emergency_contact_phone: params[:emergency_contact_phone],
-                          #guardian_id: current_guardian.id
+                          guardian_id: current_guardian.id,
                           address: params[:address],
                           city: params[:city],
                           state: params[:state],
@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
                           )
     @student.save!
     flash[:success] = "Student Created"
-
+    redirect_to "/guardians/#{current_guardian.id}"
     # potential sessions controller
 
   end

@@ -1,0 +1,18 @@
+<table>	
+	<tr>
+		<th>Location Type</th>
+		<th>Street Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip</th>
+	</tr>
+	<% @locations.each do |location| %>
+		<tr>
+			<td>location.location_type</td>
+			<td>location.address</td>
+			<td>location.city</td>
+			<td>location.state</td>
+			<td>location.zip</td>
+		</tr>
+	<% end %>
+</table>

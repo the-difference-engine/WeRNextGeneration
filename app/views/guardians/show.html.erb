@@ -4,7 +4,10 @@
 
 <h6>Insert Profile Pic Here</h6>
 
-<%= link_to "Edit Account", edit_guardian_registration_path %>
+<%= link_to "Edit Account", "/guardians/#{current_guardian.id}/edit" %>
+
+<h4>Name: <%= @guardian.first_name %> <%= @guardian.last_name %></h4>
+<h5>Address: <%= @guardian.address %></h5>
 
 <!-- calendar goes here someday -->
 

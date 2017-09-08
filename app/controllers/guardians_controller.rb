@@ -19,10 +19,12 @@ class GuardiansController < ApplicationController
                               address: params[:address],
                               city: params[:city],
                               state: params[:state],
-                              zip: params[:zip]
+                              zip: params[:zip],
+                              coun
                               )
     @guardian.save 
-    redirect_to "/students/new"
+    flash[:success] = "Account Created"
+    redirect_to "/guardians#{current_guardian.id}"
 
   end
 
@@ -48,6 +50,9 @@ class GuardiansController < ApplicationController
                               state: params[:state],
                               zip: params[:zip]
                               )
+    @guardian.save
+    flash[:success] = "Account Updated"
+    redirect_to "/guardians/#{current_guardian.id}"
   end
 
   def destroy

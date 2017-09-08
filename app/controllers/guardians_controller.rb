@@ -20,7 +20,7 @@ class GuardiansController < ApplicationController
                               city: params[:city],
                               state: params[:state],
                               zip: params[:zip],
-                              coun
+                              country: params[:country]
                               )
     @guardian.save 
     flash[:success] = "Account Created"

@@ -51,7 +51,7 @@
   
     <%= text_field_tag :zip, nil, placeholder: "Zip" %>
   </div>
-    <%= text_field_tag :guardian_id, current_guardian.id %>
+    <%= hidden_field_tag :guardian_id, current_guardian.id %>
   <br>
   <%= submit_tag "Add Student" %>
 

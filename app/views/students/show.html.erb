@@ -1,4 +1,5 @@
 <h1> <%= @student.first_name %></h1>
 
-<%= link_to "Edit Information", "/students/#{ @student.id}", method: :patch %>
+<%= link_to "Edit Information", "/students/#{ @student.id}/edit"%>
+<br>
 <%= link_to "Remove Student", "/students/#{ @student.id }", method: :delete %>

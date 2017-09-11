@@ -1,1 +1,6 @@
-<h1>INDEX PAAAYGGEEEEEIEYYYAY</h1>
+<h1>All Students</h1>
+
+<% @students.each do |student| %>
+  <h4><a href="/students/<%= student.id %>">
+  <%= student.first_name %><%= student.last_name %></h4>
+  <% end %>

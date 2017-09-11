@@ -1,10 +1,16 @@
-<h2>Welcome <%= current_guardian.email %></h1>
-
-
+<h2>Welcome <%= current_guardian.first_name %>!</h1>
 
 <h6>Insert Profile Pic Here</h6>
 
-<%= link_to "Edit Account", edit_guardian_registration_path %>
+<%= link_to "Edit Account", "/guardians/#{current_guardian.id}/edit" %>
+
+<h4>Name: <%= @guardian.first_name %> <%= @guardian.last_name %></h4>
+<h4>Address:</h4>
+<h5><%= @guardian.address %></h5> 
+<h5><%= @guardian.city %>, <%= @guardian.state %></h5>
+<h5><%= @guardian.zip %></h5>
+
+
 
 <!-- calendar goes here someday -->
 
@@ -12,8 +18,9 @@
 
 <h3>Your Child(ren)</h3>
 
-<% current_guardian.students.each do |stud| %>
+<% current_guardian.students.each do |student| %>
 <div>
-  <%= stud.first_name %>
+ <h4><a href="/students/<%= student.id %>"><%= student.first_name %></h4>
+ <br>
 </div>
 <% end %>

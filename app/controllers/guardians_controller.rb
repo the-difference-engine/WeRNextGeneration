@@ -20,9 +20,13 @@ class GuardiansController < ApplicationController
                               zip: params[:zip],
                               country: params[:country]
                               )
-      @guardian.save 
+      if @guardian.save 
       flash[:success] = "Account Created"
       redirect_to "/guardians#{current_guardian.id}"
+    else
+      flash[:warning] = "Account information incorrect, try again"
+      redirect_to "/guardians/new"
+    end 
 
 
   end

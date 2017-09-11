@@ -40,7 +40,7 @@ class LocationsController < ApplicationController
 
     def destroy
         @location_id = Location.find_by(params[:id]
-        @location_id.destroy
+    @location_id.destroy
     end
     
 end

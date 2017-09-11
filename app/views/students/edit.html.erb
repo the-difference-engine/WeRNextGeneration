@@ -1,1 +1,71 @@
-<h2>edit page </h2>
+<div class="well">
+<h2> Update Students Information </h2>
+<%= form_tag "/students/#{@student.id}", method: :patch do %>
+
+<div class="form-group">
+  <%= label_tag :first_name %>
+   <%= text_field_tag :first_name, @student.first_name, :class => "form-control"  %> 
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, @student.last_name, :class => "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :user_name %>
+    <%= text_field_tag :user_name, @student.user_name, :class => "form-control"  %>
+  </div>
+
+  <div class="form-group">
+  <%= label_tag :medical_condition %>
+    <%= text_area_tag :medical_condition, @student.medical_condition, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :medications %>
+   <%= text_area_tag :medications, @student.medications, :class => "form-control"  %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :birth_date %>
+    <%= text_field_tag :birth_date, @student.birth_date, :class => "form-control"  %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= label_tag :gender %>
+    <%= text_field_tag :gender, @student.gender, :class => "form-control"  %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= label_tag :race %>
+    <%= text_field_tag :race, @student.race, :class => "form-control"  %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= label_tag :emergency_contact %>
+    <%= text_field_tag :emergency_contact, @student.emergency_contact, :class => "form-control"  %>
+      <%= label_tag :emergency_contact_phone %>
+    <%= text_field_tag :emergency_contact_phone, @student.emergency_contact_phone, :class => "form-control"  %>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <%= label_tag :address %>
+    <%= text_field_tag :address, @student.address, :class => "form-control" %>
+    <%= label_tag :city %>
+    <%= text_field_tag :city, @student.city, :class => "form-control"  %>
+    <%= label_tag :state %>
+    <%= text_field_tag :state, @student.state, :class => "form-control"  %>
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip, @student.zip, :class => "form-control" %>
+    <%= label_tag :country %>
+    <%= text_field_tag :country, @student.country, :class => "form-control" %>
+  </div>
+    <%= hidden_field_tag :guardian_id, current_guardian.id %>
+
+  <%= submit_tag "Update Student" %>
+  <% end %>
+
+  </div>

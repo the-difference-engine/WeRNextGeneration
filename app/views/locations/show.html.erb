@@ -1,0 +1,21 @@
+<table>	
+	<tr>
+		<th>Location Type</th>
+		<th>Street Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip</th>
+	</tr>
+
+		<tr>
+			<td><%= @location.location_type %></td> 
+			<td><%= @location.address %></td> 
+			<td><%= @location.city %></td> 
+			<td><%= @location.state %></td> 
+			<td><%= @location.zip %></td> 
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "Update Location", "/locations/#{@location.id}/edit"%>
+<%= link_to "Delete Location", "/locations/#{@location.id}", method: :delete %>

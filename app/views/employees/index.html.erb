@@ -10,14 +10,16 @@
         </tr>
         <% @employees.each do | employee | %>
                 <tr>
-                    <td>employee.first_name</td>
-                     <td>employee.last_name</td>
-                     <td><%= link_to '#{employee.first_name employee.last_name}', '/employees/#{employee.id}' %></td>
-                     <td>employee.created_at</td>
-                     <td>employee.status</td>
+                    <td><%= employee.first_name %></td>
+                     <td><%= employee.last_name %></td>
+                     <td><%= employee.bio %></td>
+                     <td><%= employee.created_at %></td>
+                     <td><%= employee.status %></td>
                      <td></td>
                 </tr>
                 <input type="Submit" name="Approve">    
         <% end %>
     </table>
+
+    <%= link_to "Download Employee Data", '/employees.csv' %>
 <%# end %>

@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'faker'
 gem 'rails_12factor', group: :production
 gem 'devise'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

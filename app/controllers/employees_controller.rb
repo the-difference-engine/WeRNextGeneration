@@ -1,6 +1,16 @@
 class EmployeesController < ApplicationController
     def index
         @employees = Employee.all
+
+        def employee_data_list  
+            respond_to do |format|
+                format.html
+                format.csv do
+                    headers['Content-Disposition'] = "attachment; filename=\"employee-list\""
+                          headers['Content-Type'] ||= 'text/csv'
+                end
+            end
+        end
     end
 
     def new    
@@ -12,7 +22,6 @@ class EmployeesController < ApplicationController
                                 user_type: params[:user_type],
                                 first_name: params[:first_name],
                                 last_name: params[:last_name],
-                                # email: params[:email], migrated out of schema due to devise--may be ok written as is
                                 phone: params[:phone],
                                 address: params[:address],
                                 city: params[:city],

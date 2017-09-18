@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908003903) do
+ActiveRecord::Schema.define(version: 20170918214601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20170908003903) do
     t.datetime "updated_at", null: false
     t.string "country"
     t.string "address_2"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -68,6 +72,10 @@ ActiveRecord::Schema.define(version: 20170908003903) do
     t.integer "user_type"
     t.string "country"
     t.string "address_2"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
@@ -98,6 +106,10 @@ ActiveRecord::Schema.define(version: 20170908003903) do
     t.string "status"
     t.string "country"
     t.string "address_2"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_guardians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_guardians_on_reset_password_token", unique: true
   end
@@ -135,6 +147,10 @@ ActiveRecord::Schema.define(version: 20170908003903) do
     t.string "country"
     t.boolean "status"
     t.string "address_2"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "student_class_lists", force: :cascade do |t|
@@ -167,6 +183,10 @@ ActiveRecord::Schema.define(version: 20170908003903) do
     t.string "zip"
     t.string "country"
     t.string "address_2"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -210,6 +230,10 @@ ActiveRecord::Schema.define(version: 20170908003903) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_volunteers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_volunteers_on_reset_password_token", unique: true
   end

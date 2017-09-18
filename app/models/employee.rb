@@ -8,6 +8,11 @@ class Employee < ApplicationRecord
     belongs_to :camp, optional: true
     enum category: ["partner", "employee", "admin", "super_admin"]
 
+      has_attached_file :image, :styles => { :medium => "300x300", :thumbnail => "200x200"}
+  validates_attachment :image, content_type: { content_type:  ["image/jpg", "image/jpeg", "image/png"]}
+
+    
+
     def self.as_csv
         CSV.generate do |csv|
             csv << column_names

@@ -1,6 +1,16 @@
 <div class="well">
   <h2>Welcome <%= current_guardian.first_name %>!</h1>
 
+  <% if @guardian.image_file_name %>
+      <%= image_tag @guardian.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @guardian, url: guardian_image_path, html: {multipart: true} do |f| %>
+
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
+
+    <% end %>
+
   <h6>Insert Profile Pic Here</h6>
 
   <%= link_to "Edit Account", "/guardians/#{current_guardian.id}/edit" %>

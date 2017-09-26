@@ -16,6 +16,7 @@
   <div>Add Your Company Logo</div>
       <%= form_tag "/employees/#{@employee.id}", method: :post do %>
       	<input type="text-field" name="company_logo">
+        <input type="submit" Submit>
       <% end %>
 
   <br>   
@@ -70,7 +71,7 @@
 
                  </table>
             </div>
-            <div id="partners" class="tab-pane fade in active">
+            <div id="partners" class="tab-pane fade">
                   <h3>Partners</h3>
                   <table>
                         <tr>

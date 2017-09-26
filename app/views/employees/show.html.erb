@@ -11,6 +11,7 @@
   <div>City:   <%= @employee.city %></div>
   <div> State: <%= @employee.state %></div>
   <div>Zip Code:  <%= @employee.zip %></div>
+  <div><%= link_to 'Edit Profile', "/employees/#{@employee.id}/edit" %></div>
 
   <br>
   <div>Add Your Company Logo</div>

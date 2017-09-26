@@ -1,25 +1,28 @@
+<div class="container">
+
 <%= form_tag "/employees/#{current_employee.id}", method: :patch do %>
-    <%= label_tag :first_name %>
-    <%= text_field_tag :first_name, nil %>
+    <div><%= label_tag :first_name %>
+    <%= text_field_tag :first_name, nil %></div>
 
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, nil %>
+    <div><%= label_tag :last_name %>
+    <%= text_field_tag :last_name, nil %></div>
 
-    <%= label_tag :email %>
-    <%= email_field_tag :email, nil %>    
+    <div><%= label_tag :email %>
+    <%= email_field_tag :email, nil %></div>   
 
-    <%= label_tag :phone %>
-    <%= phone_field_tag :phone, nil %>    
+    <div><%= label_tag :phone %>
+    <%= phone_field_tag :phone, nil %></div>    
 
-    <%= label_tag :address_1 %>
-    <%= text_field_tag :address_1, nil %>    
-     <%= label_tag :address_2 %>
-    <%= text_field_tag :address_2, nil %>
+    <div><%= label_tag :address_1 %>
+    <%= text_field_tag :address_1, nil %> </div>   
+     
+     <div><%= label_tag :address_2 %>
+    <%= text_field_tag :address_2, nil %></div>
 
-    <%= label_tag :city %>
-    <%= text_field_tag :city, nil %>    
+    <div><%= label_tag :city %>
+    <%= text_field_tag :city, nil %></div>    
 
-    State<select name="state">
+    <div>State<select name="state">
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -71,17 +74,19 @@
         <option value="WV">West Virginia</option>
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
-    </select>  
+    </select> </div> 
 
-    <%= label_tag :zip %>
-    <%= text_field_tag :zip, nil %>  
+    <div><%= label_tag :zip %>
+    <%= text_field_tag :zip, nil %> </div> 
 
-    <%= label_tag :image %>
-    <%= text_field_tag :image, nil %>    
+    <div><%= label_tag :image %>
+    <%= text_field_tag :image, nil %></div>    
 
-    <%= label_tag :bio %>
-    <%= text_area_tag :bio, nil %>     
+    <div><%= label_tag :bio %>
+    <%= text_area_tag :bio, nil %></div>     
 
-    <%= submit_tag "Submit" %> 
+    <div><%= submit_tag "Submit" %></div> 
 
 <% end %>
+
+</div>

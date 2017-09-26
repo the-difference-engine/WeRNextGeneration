@@ -1,22 +1,26 @@
 <div>
 Image: <%= @employee.image %>
+
+
+
 First Name: <%= @employee.first_name %>
 Last Name: <%= @employee.last_name %>
 Bio: <%= @employee.bio %>
 Email: <%= @employee.email %>
 Phone Number: <%= @employee.phone %>
-Address: <%= @employee.address %>
+Address: <%= @employee.address_1 %>
+Address: <%= @employee.address_2 %>
         <%= @employee.city %>
         <%= @employee.state %>
         <%= @employee.zip %>
 </div>
-<% link_to "Edit Profile", '/employees/<%= @employee.id %>/edit' %>
+<%= link_to "Edit Profile", "/employees/#{current_employee.id}/edit" %>
 
 
 <% if current_employee.user_type == "partner" %>
 Add Your Company Logo
-    <%= form_tag '/employees/<%= @employee.id %>' method: :post do %>
-    	<input type="text-field" name="company_logo">
+    <%= form_tag "/employees/#{current_employee.id}" method: :post do %>
+      <input type="text-field" name="company_logo">
     <% end %>
         
 <% end %>

@@ -1,4 +1,4 @@
-<%= form_tag '/employees', method: :patch do %>
+<%= form_tag "/employees/#{current_employee.id}", method: :patch do %>
     <%= label_tag :first_name %>
     <%= text_field_tag :first_name, nil %>
 

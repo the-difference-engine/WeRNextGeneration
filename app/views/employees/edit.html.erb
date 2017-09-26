@@ -1,3 +1,5 @@
+<%= link_to "Profile", "/employees/#{@employee.id}" %>
+
 <div class="container">
 
 <%= form_tag "/employees/#{current_employee.id}", method: :patch do %>
@@ -90,3 +92,4 @@
 <% end %>
 
 </div>
+

@@ -4,27 +4,27 @@
 
 <%= form_tag "/employees/#{current_employee.id}", method: :patch do %>
     <div><%= label_tag :first_name %>
-    <%= text_field_tag :first_name, nil %></div>
+    <%= text_field_tag :first_name, @employee.first_name %></div>
 
     <div><%= label_tag :last_name %>
-    <%= text_field_tag :last_name, nil %></div>
+    <%= text_field_tag :last_name, @employee.last_name %></div>
 
     <div><%= label_tag :email %>
-    <%= email_field_tag :email, nil %></div>   
+    <%= email_field_tag :email, @employee.email %></div>   
 
     <div><%= label_tag :phone %>
-    <%= phone_field_tag :phone, nil %></div>    
+    <%= phone_field_tag :phone, @employee.phone %></div>    
 
     <div><%= label_tag :address_1 %>
-    <%= text_field_tag :address_1, nil %> </div>   
+    <%= text_field_tag :address_1, @employee.address_1 %> </div>   
      
      <div><%= label_tag :address_2 %>
-    <%= text_field_tag :address_2, nil %></div>
+    <%= text_field_tag :address_2, @employee.address_2 %></div>
 
     <div><%= label_tag :city %>
-    <%= text_field_tag :city, nil %></div>    
+    <%= text_field_tag :city, @employee.city %></div>    
 
-    <div>State<select name="state">
+    <div>State<select name="state" value="<%= @employee.state %>">
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -79,13 +79,13 @@
     </select> </div> 
 
     <div><%= label_tag :zip %>
-    <%= text_field_tag :zip, nil %> </div> 
+    <%= text_field_tag :zip, @employee.zip %> </div> 
 
     <div><%= label_tag :image %>
-    <%= text_field_tag :image, nil %></div>    
+    <%= text_field_tag :image, @employee.image %></div>    
 
     <div><%= label_tag :bio %>
-    <%= text_area_tag :bio, nil %></div>     
+    <%= text_area_tag :bio, @employee.bio %></div>     
 
     <div><%= submit_tag "Submit" %></div> 
 

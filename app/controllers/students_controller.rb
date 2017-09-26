@@ -25,7 +25,7 @@ before_action :authenticate_employee!
                           emergency_contact: params[:emergency_contact],
                           emergency_contact_phone: params[:emergency_contact_phone],
                           guardian_id: current_guardian.id,
-                          address: params[:address],
+                          address_1: params[:address_1],
                           city: params[:city],
                           state: params[:state],
                           zip: params[:zip]

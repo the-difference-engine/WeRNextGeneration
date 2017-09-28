@@ -10,8 +10,9 @@ class LocationsController < ApplicationController
 
     def create
         @location = Location.new(
-                                 location_type: params[:location_type].
-                                 address: params[:address],
+                                 location_type: params[:location_type],
+                                 address_1: params[:address],
+                                 address_2: params[:address],
                                  city: params[:city],
                                  state: params[:state],
                                  zip: params[:zip],
@@ -39,7 +40,8 @@ class LocationsController < ApplicationController
         @location = Location.find(params[:id])
         @location = assign_attributes(
                                     location_type: params[:location_type],
-                                    address: params[:address],
+                                    address_1: params[:address],
+                                    address_2: params[:address],
                                     city: params[:city],
                                     state: params[:state],
                                     zip: params[:zip]

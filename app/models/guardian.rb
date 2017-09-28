@@ -5,4 +5,6 @@ class Guardian < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :students
+
+  
 end

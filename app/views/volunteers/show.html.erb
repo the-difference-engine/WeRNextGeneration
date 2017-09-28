@@ -1,3 +1,14 @@
 
 
+<% if @volunteer.image_file_name %>
+      <%= image_tag @volunteer.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @volunteer, url: guardian_image_path, html: {multipart: true} do |f| %>
+
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
+
+    <% end %>
+
+
 <%= link_to "Remove Volunteer", "/volunteers/#{ @volunteer.id}", method: :delete %>

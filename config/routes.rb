@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :volunteers
-  devise_for :guardians, controllers: { sessions: 'guardians/sessions'}
+  devise_for :guardians
 
   devise_for :employees
   
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   patch '/students/:id' => 'students#update'
 
   delete '/students/:id' => 'students#destroy'
+
+      #image route
+  patch '/students/:id/image', to: 'student_image#update', as: :student_image
+
 
   # student class lists routes
 
@@ -51,6 +55,11 @@ Rails.application.routes.draw do
 
  delete '/employees/:id' => 'employees#destroy'
 
+
+  #image route
+  patch '/employees/:id/image', to: 'employee_image#update', as: :employee_image
+        
+
 # volunteers routes
 
 get '/volunteers' => 'volunteers#index'
@@ -64,6 +73,12 @@ get 'volunteers/:id/edit' => 'volunteers#edit'
 patch 'volunteers/:id' => 'volunteers#update'
 
 delete 'volunteers/:id' => 'volunteers#destroy'
+
+
+      #image route
+  patch '/volunteers/:id/image', to: 'volunteer_image#update', as: :volunteer_image
+        
+
 
  # locations routes
 
@@ -79,6 +94,11 @@ delete 'volunteers/:id' => 'volunteers#destroy'
 
  delete '/locations/:id' => 'locations#destroy'
 
+
+    #image route
+  patch '/locations/:id/image', to: 'location_image#update', as: :location_image
+        
+
  # guardians routes
 
  get '/guardians' => 'guardians#index'
@@ -92,6 +112,12 @@ delete 'volunteers/:id' => 'volunteers#destroy'
  patch '/guardians/:id' => 'guardians#update'
 
  delete '/guardians/:id' => 'guardians#destroy'
+
+
+      #image route
+  patch '/guardians/:id/image', to: 'guardian_image#update', as: :guardian_image
+        
+
 
  # camps routes
 

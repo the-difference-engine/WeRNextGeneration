@@ -1,28 +1,32 @@
 <div class="well">
-<h2> Update your account </h2>
+  <h2> Update your account </h2>
 
-<%= form_tag "/guardians/#{current_guardian.id}", method: :patch do %>
+  <%= form_tag "/guardians/#{current_guardian.id}", method: :patch do %>
 
-<div class="form-group">
-  <%= label_tag :fist_name %>
-  <%= text_field_tag :first_name, @guardian.first_name, :class => "form-control" %>
-</div>
+  <div class="form-group">
+    <%= label_tag :fist_name %>
+    <%= text_field_tag :first_name, @guardian.first_name, :class => "form-control" %>
+  </div>
 
-<div class="form-group">
-  <%= label_tag :last_name %>
-  <%= text_field_tag :last_name, @guardian.last_name, :class => "form-control" %>
-</div>
+  <div class="form-group">
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, @guardian.last_name, :class => "form-control" %>
+  </div>
 
-<div class="form-group">
-  <%= label_tag :home_phone %>
-  <%= text_field_tag :home_phone, @guardian.home_phone, :class => "form-control" %>
-</div>
+  <div class="form-group">
+    <%= label_tag :home_phone %>
+    <%= text_field_tag :home_phone, @guardian.home_phone, :class => "form-control" %>
+  </div>
 
-<div class="form-group">
-  <%= label_tag :cell_phone %>
-  <%= text_field_tag :cell_phone, @guardian.cell_phone, :class => "form-control" %>
-</div>
+  <div class="form-group">
+    <%= label_tag :cell_phone %>
+    <%= text_field_tag :cell_phone, @guardian.cell_phone, :class => "form-control" %>
+  </div>
 
+  <div class="form-group">
+    <%= label_tag :address_1 %>
+    <%= text_field_tag :address_1, @guardian.address_1, :class => "form-control" %>
+  </div>
 <div class="form-group">
   <%= label_tag :address %>
   <%= text_field_tag :address_1, @guardian.address_1, :class => "form-control" %>
@@ -39,22 +43,35 @@
   <%= text_field_tag :state, @guardian.state, :class => "form-control" %>
 </div>
 
-<div class="form-group">
-  <%= label_tag :zip %>
-  <%= text_field_tag :zip, @guardian.zip, :class => "form-control" %>
-</div>
+  <div class="form-group">
+    <%= label_tag :address_2 %>
+    <%= text_field_tag :address_2, @guardian.address_2, :class => "form-control" %>
+  </div>
 
-<div class="form-group">
-  <%= label_tag :country %>
-  <%= text_field_tag :country, @guardian.country, :class => "form-control" %>
-</div>
+  <div class="form-group">
+    <%= label_tag :city %>
+    <%= text_field_tag :city, @guardian.city, :class => "form-control" %>
+  </div><div class="form-group">
+    <%= label_tag :state %>
+    <%= text_field_tag :state, @guardian.state, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip, @guardian.zip, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :country %>
+    <%= text_field_tag :country, @guardian.country, :class => "form-control" %>
+  </div>
 
 
-<div class="form-group">
-  <%= submit_tag "Update", :class => "btn btn-success" %>
-</div>
+  <div class="form-group">
+    <%= submit_tag "Update", :class => "btn btn-success" %>
+  </div>
 
 
-<% end %>
+  <% end %>
 </div>
 

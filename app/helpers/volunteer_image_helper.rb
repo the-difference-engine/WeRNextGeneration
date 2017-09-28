@@ -1,0 +1,2 @@
+module VolunteerImageHelper
+end

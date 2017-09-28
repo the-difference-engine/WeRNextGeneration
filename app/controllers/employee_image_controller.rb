@@ -12,7 +12,7 @@ class EmployeeImageController < ApplicationController
   private
 
   def employee_params
-    params.require)(:employee).permit(:image)
+    params.require(:employee).permit(:image)
   end
 
 end

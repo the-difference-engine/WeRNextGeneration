@@ -9,7 +9,14 @@
     <%= f.file_field :image %>
     <%= submit_tag " Update" %>
 
-    <% end %>
+
+<h4>Name: <%= @guardian.first_name %> <%= @guardian.last_name %></h4>
+<h4>Address:</h4>
+<h5><%= @guardian.address_1 %></h5> 
+<h5><%= @guardian.address_2 %></h5>
+<h5><%= @guardian.city %>, <%= @guardian.state %></h5>
+<h5><%= @guardian.zip %></h5>
+
 
   <h6>Insert Profile Pic Here</h6>
 

@@ -1,4 +1,6 @@
 class GuardiansController < ApplicationController
+before_action :authenticate_guardian!
+before_action :authenticate_employee! 
 
   def index
     @guardians = Guardian.all

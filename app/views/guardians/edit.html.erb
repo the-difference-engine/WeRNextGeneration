@@ -27,6 +27,21 @@
     <%= label_tag :address_1 %>
     <%= text_field_tag :address_1, @guardian.address_1, :class => "form-control" %>
   </div>
+<div class="form-group">
+  <%= label_tag :address %>
+  <%= text_field_tag :address_1, @guardian.address_1, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag :address_Apt_Unit_or_Ste %>
+  <%= text_field_tag :address_2, @guardian.address_2, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag :city %>
+  <%= text_field_tag :city, @guardian.city, :class => "form-control" %>
+</div><div class="form-group">
+  <%= label_tag :state %>
+  <%= text_field_tag :state, @guardian.state, :class => "form-control" %>
+</div>
 
   <div class="form-group">
     <%= label_tag :address_2 %>

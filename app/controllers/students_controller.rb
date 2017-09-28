@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-
+before_action :authenticate_guardian! 
+before_action :authenticate_employee! 
   def index
     @students = Student.all 
   end

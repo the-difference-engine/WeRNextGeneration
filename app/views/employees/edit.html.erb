@@ -1,23 +1,35 @@
+
+<%= link_to "Profile", "/employees/#{@employee.id}" %>
+
 <%= form_tag "/employees/#{current_employee.id}", method: :patch do %>
     <%= label_tag :first_name %>
     <%= text_field_tag :first_name, nil %>
 
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, nil %>
+<div class="container">
 
-    <%= label_tag :email %>
-    <%= email_field_tag :email, nil %>    
+<%= form_tag "/employees/#{current_employee.id}", method: :patch do %>
+    <div><%= label_tag :first_name %>
+    <%= text_field_tag :first_name, @employee.first_name %></div>
 
-    <%= label_tag :phone %>
-    <%= phone_field_tag :phone, nil %>    
+    <div><%= label_tag :last_name %>
+    <%= text_field_tag :last_name, @employee.last_name %></div>
 
-    <%= label_tag :address %>
-    <%= text_field_tag :address, nil %>    
+    <div><%= label_tag :email %>
+    <%= email_field_tag :email, @employee.email %></div>   
 
-    <%= label_tag :city %>
-    <%= text_field_tag :city, nil %>    
+    <div><%= label_tag :phone %>
+    <%= phone_field_tag :phone, @employee.phone %></div>    
 
-    State<select name="state">
+    <div><%= label_tag :address_1 %>
+    <%= text_field_tag :address_1, @employee.address_1 %> </div>   
+     
+     <div><%= label_tag :address_2 %>
+    <%= text_field_tag :address_2, @employee.address_2 %></div>
+
+    <div><%= label_tag :city %>
+    <%= text_field_tag :city, @employee.city %></div>    
+
+    <div>State<select name="state" value="<%= @employee.state %>">
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -69,17 +81,20 @@
         <option value="WV">West Virginia</option>
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
-    </select>  
+    </select> </div> 
 
-    <%= label_tag :zip %>
-    <%= text_field_tag :zip, nil %>  
+    <div><%= label_tag :zip %>
+    <%= text_field_tag :zip, @employee.zip %> </div> 
 
-    <%= label_tag :image %>
-    <%= text_field_tag :image, nil %>    
+    <div><%= label_tag :image %>
+    <%= text_field_tag :image, @employee.image %></div>    
 
-    <%= label_tag :bio %>
-    <%= text_area_tag :bio, nil %>     
+    <div><%= label_tag :bio %>
+    <%= text_area_tag :bio, @employee.bio %></div>     
 
-    <%= submit_tag "Submit" %> 
+    <div><%= submit_tag "Submit" %></div> 
 
 <% end %>
+
+</div>
+

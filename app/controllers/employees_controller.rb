@@ -33,7 +33,7 @@ class EmployeesController < ApplicationController
                                  )
         if @employee.save
             flash[:success] = "Employee Successfully Created"
-            redirect_to "/employees"
+            redirect_to "/employees/#{@employee.id}"
         else
             flash[:warning] = "Error: Please Try Again"
             render "/employees/new"
@@ -71,7 +71,7 @@ class EmployeesController < ApplicationController
                                     )
         if @employee.save
             flash[:success] = "Employee Successfully Updated"
-            redirect_to "/employees"
+            redirect_to "/employees/#{@employee.id}"
         else
             flash[:warning] = "Error: Please Try Again"
             render "/employee/#{@employee.id}/edit"

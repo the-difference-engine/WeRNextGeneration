@@ -1,4 +1,6 @@
 class GuardiansController < ApplicationController
+before_action :authenticate_guardian!
+before_action :authenticate_employee! 
 
   def index
     @guardians = Guardian.all
@@ -14,7 +16,8 @@ class GuardiansController < ApplicationController
                               last_name: params[:last_name],
                               home_phone: params[:home_phone],
                               cell_phone: params[:cell_phone],
-                              address: params[:address],
+                              address_1: params[:address_1],
+                              address_2: params[:address_2],
                               city: params[:city],
                               state: params[:state],
                               zip: params[:zip],
@@ -47,7 +50,8 @@ class GuardiansController < ApplicationController
                               last_name: params[:last_name],
                               home_phone: params[:home_phone],
                               cell_phone: params[:cell_phone],
-                              address: params[:address],
+                              address_1: params[:address_1],
+                              address_2: params[:address_2],
                               city: params[:city],
                               state: params[:state],
                               zip: params[:zip],

@@ -2,8 +2,20 @@
 
 <h1> <%= @student.first_name %> <%= @student.last_name %></h1>
 
+<% if @student.image_file_name %>
+      <%= image_tag @student.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @student, url: student_image_path, html: {multipart: true} do |f| %>
+
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
+
+    <% end %>
+
+
 <h4>Address:</h4>
-<h5><%= @student.address %></h5> 
+<h5><%= @student.address_1 %></h5> 
+<h5><%= @student.address_2 %></h5> 
 <h5><%= @student.city %>, <%= @student.state %></h5>
 <h5><%= @student.zip %></h5>
 <h5><%= @student.country %></h5>

@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-
+before_action :authenticate_guardian! 
+before_action :authenticate_employee! 
   def index
     @students = Student.all 
   end
@@ -24,7 +25,8 @@ class StudentsController < ApplicationController
                           emergency_contact: params[:emergency_contact],
                           emergency_contact_phone: params[:emergency_contact_phone],
                           guardian_id: current_guardian.id,
-                          address: params[:address],
+                          address_1: params[:address_1],
+                          address_2: params[:address_2],
                           city: params[:city],
                           state: params[:state],
                           zip: params[:zip]

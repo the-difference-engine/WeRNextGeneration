@@ -1,26 +1,48 @@
-<h2>Welcome <%= current_guardian.first_name %>!</h1>
+<div class="well">
+  <h2>Welcome <%= current_guardian.first_name %>!</h1>
 
-<h6>Insert Profile Pic Here</h6>
+  <% if @guardian.image_file_name %>
+      <%= image_tag @guardian.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @guardian, url: guardian_image_path, html: {multipart: true} do |f| %>
 
-<%= link_to "Edit Account", "/guardians/#{current_guardian.id}/edit" %>
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
+
 
 <h4>Name: <%= @guardian.first_name %> <%= @guardian.last_name %></h4>
 <h4>Address:</h4>
-<h5><%= @guardian.address %></h5> 
+<h5><%= @guardian.address_1 %></h5> 
+<h5><%= @guardian.address_2 %></h5>
 <h5><%= @guardian.city %>, <%= @guardian.state %></h5>
 <h5><%= @guardian.zip %></h5>
 
 
+  <h6>Insert Profile Pic Here</h6>
 
-<!-- calendar goes here someday -->
+  <%= link_to "Edit Account", "/guardians/#{current_guardian.id}/edit" %>
+  <%= link_to "Edit Account2", edit_guardian_registration_path %>
 
-<h3>Sign up your Student: <a href="/students/new">HERE </a></h3>
+  <h4>Name: <%= @guardian.first_name %> <%= @guardian.last_name %></h4>
+  <h3>Email <%= @guardian.email %></h3>
+  <h4>Address:</h4>
+  <h5><%= @guardian.address_1 %></h5> 
+  <h5><%= @guardian.address_2 %></h5>
+  <h5><%= @guardian.city %>, <%= @guardian.state %></h5>
+  <h5><%= @guardian.zip %></h5>
 
-<h3>Your Child(ren)</h3>
 
-<% current_guardian.students.each do |student| %>
-<div>
- <h4><a href="/students/<%= student.id %>"><%= student.first_name %></h4>
- <br>
+
+  <!-- calendar goes here someday -->
+
+  <h3>Sign up your Student: <a href="/students/new">HERE </a></h3>
+
+  <h3>Your Child(ren)</h3>
+
+  <% current_guardian.students.each do |student| %>
+    <div>
+     <h4><a href="/students/<%= student.id %>"><%= student.first_name %></h4>
+     <br>
+    </div>
+  <% end %>
 </div>
-<% end %>

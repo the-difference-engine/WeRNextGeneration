@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :volunteers
   devise_for :guardians
-
   devise_for :employees
   
   get 'home/index'  

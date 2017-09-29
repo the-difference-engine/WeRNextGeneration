@@ -68,12 +68,15 @@ Add Your Company Logo
                       <tr>
                           <th>First Name</th>
                           <th>Last Name</th>
+
                           <th>Bio</th>
                           <th>Created At</th>
                           <th>Status</th>
                           <% if current_employee.user_type == "super_admin" %>
                           <th>Update User</th>
+
                           <th>Delete User</th>
+
                           <% end %>
                       </tr>
                     
@@ -116,6 +119,20 @@ Add Your Company Logo
                          <% end %>
                      </tr>
                      
+                     <% @volunteer_pending.each do | volunteer | %>
+                             <tr>
+                                 <td>volunteer.first_name</td>
+                                  <td>volunteer.last_name</td>
+                                  <td><%= link_to ‘#{volunteer.first_name volunteer.last_name}‘, ‘/volunteers/#{volunteer.id}’ %></td>
+                                  <td>volunteer.created_at</td>
+                                  <td>volunteer.status</td>                    
+                                  <% if current_employee.user_type == “super_admin” %>
+                                 <td><%= link_to “Update”, “/volunteers/#{volunteer.id}/edit” %></td>
+                                 <td><%= link to “Delete”, “/volunteers/#{volunteer.id}“, method: :destroy %></td>
+                                 <% end %>
+                             </tr>
+                              
+<% end %>
 
 
 

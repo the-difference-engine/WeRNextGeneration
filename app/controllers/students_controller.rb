@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-before_action :authenticate_guardian!, except:(:new) 
+before_action :authenticate_guardian!, except: [:new, :create]
 before_action :authenticate_employee! 
   def index
     @students = Student.all 

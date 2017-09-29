@@ -48,3 +48,5 @@ Devise: Used for a more secure user authentication
 
 CSV: Ability to download employee data from Index page. 
 
+RSpec: Installed for testing
+

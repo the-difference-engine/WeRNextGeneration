@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :partners
   devise_for :volunteers
   devise_for :guardians
   devise_for :employees

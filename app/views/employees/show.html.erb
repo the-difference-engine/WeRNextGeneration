@@ -15,6 +15,13 @@
 
 <div>
 Image: <%= @employee.image %>
+  <% if @employee.image_file_name %>
+      <%= image_tag @employee.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @employee, url: employee_image_path, html: {multipart: true} do |f| %>
+
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
 
 
 

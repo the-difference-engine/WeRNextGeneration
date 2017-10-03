@@ -35,7 +35,7 @@ Address: <%= @employee.address_2 %>
 
 <% if current_employee.user_type == "partner" %>
 Add Your Company Logo
-    <%= form_tag "/employees/#{current_employee.id}" method: :post do %>
+    <%= form_tag "/employees/#{current_employee.id}", method: :post do %>
       <input type="text-field" name="company_logo">
     <% end %>
         

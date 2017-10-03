@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :partners
   devise_for :volunteers
   devise_for :guardians
-
   devise_for :employees
   
   get 'home/index'  
@@ -132,5 +132,24 @@ delete 'volunteers/:id' => 'volunteers#destroy'
  patch '/camps/:id' => 'camps#update'
 
  delete '/camps/:id' => 'camps#destroy'
+
+ # volunteers routes
+
+get '/partners' => 'partners#index'
+
+get '/partners/new' => 'partners#new'
+post '/partners' => 'partners#create'
+
+get 'partners/:id' => 'partners#show'
+
+get 'partners/:id/edit' => 'partners#edit'
+patch 'partners/:id' => 'partners#update'
+
+delete 'partners/:id' => 'partners#destroy'
+
+
+      #image route
+  patch '/partners/:id/image', to: 'partner_image#update', as: :partner_image
+        
 
 end

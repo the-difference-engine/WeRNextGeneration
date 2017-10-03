@@ -3,9 +3,9 @@ class EmployeeImageController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
     if @employee.update!( employee_params )
-        redirect_to "/employees/current_employee.id"
+        redirect_to "/employees/#{current_employee.id}"
     else
-        redirect_to "/employees/current_employee.id"
+        redirect_to "/employees/#{current_employee.id}"
     end
   end
 

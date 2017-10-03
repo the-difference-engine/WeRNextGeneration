@@ -1,0 +1,36 @@
+<div class="well">
+  <h2>Welcome <%= current_partner.company_name %>!</h1>
+
+  <% if @partner.image_file_name %>
+      <%= image_tag @partner.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @partner, url: partner_image_path, html: {multipart: true} do |f| %>
+
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
+    <% end %>
+
+
+<h4>Name: <%= @partner.company_name %></h4>
+<h4>Address:</h4>
+<h5><%= @partner.address_1 %></h5> 
+<h5><%= @partner.address_2 %></h5>
+<h5><%= @partner.city %>, <%= @partner.state %></h5>
+<h5><%= @partner.zip %></h5>
+
+
+  <h6>Insert Profile Pic Here</h6>
+
+  <%= link_to "Edit Account", "/partners/#{current_partner.id}/edit" %>
+  <%= link_to "Edit Account2", edit_partner_registration_path %>
+
+  <h4>Name: <%= @partner.company_name %> 
+  <h3>Email <%= @partner.email %></h3>
+  <h4>Address:</h4>
+  <h5><%= @partner.address_1 %></h5> 
+  <h5><%= @partner.address_2 %></h5>
+  <h5><%= @partner.city %>, <%= @partner.state %></h5>
+  <h5><%= @partner.zip %></h5>
+
+
+</div>

@@ -55,7 +55,7 @@ class EmployeesController < ApplicationController
     def update
         @employee = Employee.find(params[:id])
         @employee.assign_attributes(
-                                        company_logo: params[:company_logo],
+                                        
                                         user_type: params[:user_type],
                                         first_name: params[:first_name],
                                         last_name: params[:last_name],

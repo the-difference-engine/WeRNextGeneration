@@ -1,0 +1,51 @@
+<div class="well">
+  <h2> Update your account </h2>
+
+  <%= form_tag "/partners/#{current_partner.id}", method: :patch do %>
+
+  <div class="form-group">
+    <%= label_tag :company_name %>
+    <%= text_field_tag :company_name, @partner.company_name, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :address_1 %>
+    <%= text_field_tag :address_1, @partner.address_1, :class => "form-control" %>
+  </div>
+
+ <div class="form-group">
+    <%= label_tag :address_2 %>
+    <%= text_field_tag :address_2, @partner.address_2, :class => "form-control" %>
+  </div>
+
+
+
+ 
+
+  <div class="form-group">
+    <%= label_tag :city %>
+    <%= text_field_tag :city, @partner.city, :class => "form-control" %>
+  </div><div class="form-group">
+    <%= label_tag :state %>
+    <%= text_field_tag :state, @partner.state, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip, @partner.zip, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :country %>
+    <%= text_field_tag :country, @partner.country, :class => "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= submit_tag "Update", :class => "btn btn-success" %>
+  </div>
+
+
+  <% end %>
+</div>
+

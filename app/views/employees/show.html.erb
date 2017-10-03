@@ -14,7 +14,7 @@
   <div>Zip Code:  <%= @employee.zip %></div>
 
 <div>
-Image: <%= @employee.image %>
+
   <% if @employee.image_file_name %>
       <%= image_tag @employee.image.url(:thumbnail) %>
     <% end %>
@@ -22,6 +22,7 @@ Image: <%= @employee.image %>
 
     <%= f.file_field :image %>
     <%= submit_tag " Update" %>
+    <% end %>
 
 
 
@@ -37,136 +38,4 @@ Address: <%= @employee.address_2 %>
         <%= @employee.zip %>
 </div>
 <%= link_to "Edit Profile", "/employees/#{current_employee.id}/edit" %>
-
-
-<% if current_employee.user_type == "partner" %>
-Add Your Company Logo
-    <%= form_tag "/employees/#{current_employee.id}", method: :post do %>
-      <input type="text-field" name="company_logo">
-    <% end %>
-        
-<% end %>
-
-
-  <br>
-  <div>Add Your Company Logo</div>
-      <%= form_tag "/employees/#{@employee.id}", method: :post do %>
-      	<input type="text-field" name="company_logo">
-        <input type="submit" Submit>
-      <% end %>
-
-  <br>   
-
-  	<%= link_to 'Edit Homepage' %>
 </div>
-
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#pending">Pending</a></li>
-        <li><a data-toggle="tab" href="#guardians">Guardings</a></li>
-        <li><a data-toggle="tab" href="#volunteers">Volunteers</a></li>
-        <li><a data-toggle="tab" href="#partners">Partners</a></li>
-      </ul>
-
-        <div class="tab-content">
-            <div id="pending" class="tab-pane fade in active">
-              <h3>Pending</h3>
-              <table>
-                      <tr>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-
-                          <th>Bio</th>
-                          <th>Created At</th>
-                          <th>Status</th>
-                          <% if current_employee.user_type == "super_admin" %>
-                          <th>Update User</th>
-
-                          <th>Delete User</th>
-
-                          <% end %>
-                      </tr>
-                    
-
-
-                </table>
-            </div>
-            <div id="guardians" class="tab-pane fade">
-              <h3>Guardians</h3>
-                 <table>
-                     <tr>
-                         <th>First Name</th>
-                         <th>Last Name</th>
-                         <th>Bio</th>
-                         <th>Created At</th>
-                         <th>Status</th>
-                         <% if current_employee.user_type == "super_admin" %>
-                         <th>Update</th>
-                         <th>Delete</th>
-                         <% end %>
-                     </tr>
-                     
-
-
-
-                 </table>
-            </div>
-            <div id="volunteers" class="tab-pane fade">
-              <h3>Volunteers</h3>
-                 <table>
-                     <tr>
-                         <th>First Name</th>
-                         <th>Last Name</th>
-                         <th>Bio</th>
-                         <th>Created At</th>
-                         <th>Status</th>
-                         <% if current_employee.user_type == "super_admin" %>
-                         <th>Update</th>
-                         <th>Delete</th>
-                         <% end %>
-                     </tr>
-                     
-                     <% @volunteer_pending.each do | volunteer | %>
-                             <tr>
-                                 <td>volunteer.first_name</td>
-                                  <td>volunteer.last_name</td>
-                                  <td><%= link_to ‘#{volunteer.first_name volunteer.last_name}‘, ‘/volunteers/#{volunteer.id}’ %></td>
-                                  <td>volunteer.created_at</td>
-                                  <td>volunteer.status</td>                    
-                                  <% if current_employee.user_type == “super_admin” %>
-                                 <td><%= link_to “Update”, “/volunteers/#{volunteer.id}/edit” %></td>
-                                 <td><%= link to “Delete”, “/volunteers/#{volunteer.id}“, method: :destroy %></td>
-                                 <% end %>
-                             </tr>
-                              
-<% end %>
-
-
-
-                 </table>
-            </div>
-            <div id="partners" class="tab-pane fade">
-                  <h3>Partners</h3>
-                  <table>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Bio</th>
-                            <th>Created At</th>
-                            <th>Status</th>
-                            <% if current_employee.user_type == "super_admin" %>
-                            <th>Update</th>
-                            <th>Delete</th>
-                            <% end %>
-                        </tr>
-                        
-
-
-
-                    </table>
-            </div>
-        </div>
-    </div>
-
-
-

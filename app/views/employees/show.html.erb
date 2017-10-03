@@ -12,10 +12,17 @@
   <div>City:   <%= @employee.city %></div>
   <div> State: <%= @employee.state %></div>
   <div>Zip Code:  <%= @employee.zip %></div>
-  <div><%= link_to 'Edit Profile', "/employees/#{@employee.id}/edit" %></div>
 
 <div>
-Image: <%= @employee.image %>
+
+  <% if @employee.image_file_name %>
+      <%= image_tag @employee.image.url(:thumbnail) %>
+    <% end %>
+    <%= form_for @employee, url: employee_image_path, html: {multipart: true} do |f| %>
+
+    <%= f.file_field :image %>
+    <%= submit_tag " Update" %>
+    <% end %>
 
 First Name: <%= @employee.first_name %>
 Last Name: <%= @employee.last_name %>
@@ -29,6 +36,7 @@ Address: <%= @employee.address_2 %>
         <%= @employee.zip %>
 </div>
 <%= link_to "Edit Profile", "/employees/#{current_employee.id}/edit" %>
+
 
 
 <% if current_employee.user_type == "partner" %>
@@ -50,77 +58,6 @@ Add Your Company Logo
   <br>   
 
   	<%= link_to 'Edit Homepage', '/home/edit' %>
+
 </div>
-
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#guardians">Guardians</a></li>
-        <li><a data-toggle="tab" href="#volunteers">Volunteers</a></li>
-        <li><a data-toggle="tab" href="#partners">Partners</a></li>
-      </ul>
-
-        <div class="tab-content">
-            <div id="guardians" class="tab-pane fade in active">
-              <h3>Guardians</h3>
-              <table>
-                      <tr>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Bio</th>
-                          <th>Created At</th>
-                          <th>Status</th>
-                          <% if current_employee.user_type == "super_admin" %>
-                          <th>Update User</th>
-                          <th>Delete User</th>
-                          <% end %>
-                      </tr>
-                    
-
-
-                </table>
-            </div>
-            <div id="volunteers" class="tab-pane fade">
-              <h3>Volunteers</h3>
-                 <table>
-                     <tr>
-                         <th>First Name</th>
-                         <th>Last Name</th>
-                         <th>Bio</th>
-                         <th>Created At</th>
-                         <th>Status</th>
-                         <% if current_employee.user_type == "super_admin" %>
-                         <th>Update</th>
-                         <th>Delete</th>
-                         <% end %>
-                     </tr>
-                     
-
-
-
-                 </table>
-            </div>
-            <div id="partners" class="tab-pane fade">
-                  <h3>Partners</h3>
-                  <table>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Bio</th>
-                            <th>Created At</th>
-                            <th>Status</th>
-                            <% if current_employee.user_type == "super_admin" %>
-                            <th>Update</th>
-                            <th>Delete</th>
-                            <% end %>
-                        </tr>
-                        
-
-
-
-                    </table>
-            </div>
-        </div>
-    </div>
-
-
 

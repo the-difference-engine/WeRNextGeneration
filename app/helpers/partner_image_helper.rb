@@ -1,0 +1,2 @@
+module PartnerImageHelper
+end

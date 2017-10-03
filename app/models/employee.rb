@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
     belongs_to :camp, optional: true
-    enum category: ["partner", "employee", "admin", "super_admin"]
+    enum category: ["employee", "admin", "super_admin"]
 
       has_attached_file :image, :styles => { :medium => "300x300", :thumbnail => "200x200"}
   validates_attachment :image, content_type: { content_type:  ["image/jpg", "image/jpeg", "image/png"]}

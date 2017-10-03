@@ -1,28 +1,5 @@
-
-
-<div class="container">
-  <div>Image: <%= @employee.image %></div>
-  <div>First Name: <%= @employee.first_name %></div>
-  <div>Last Name: <%= @employee.last_name %></div>
-  <div>Bio: <%= @employee.bio %></div>
-  <div>Email: <%= @employee.email %></div>
-  <div>Phone Number: <%= @employee.phone %></div>
-  <div>Address: <%= @employee.address_1 %></div>
-  <div>Address 2: <%= @employee.address_2 %></div>
-  <div>City:   <%= @employee.city %></div>
-  <div> State: <%= @employee.state %></div>
-  <div>Zip Code:  <%= @employee.zip %></div>
-
 <div>
-
-  <% if @employee.image_file_name %>
-      <%= image_tag @employee.image.url(:thumbnail) %>
-    <% end %>
-    <%= form_for @employee, url: employee_image_path, html: {multipart: true} do |f| %>
-
-    <%= f.file_field :image %>
-    <%= submit_tag " Update" %>
-    <% end %>
+Image: <%= @employee.image %>
 
 
 
@@ -38,4 +15,124 @@ Address: <%= @employee.address_2 %>
         <%= @employee.zip %>
 </div>
 <%= link_to "Edit Profile", "/employees/#{current_employee.id}/edit" %>
-</div>
+
+
+<% if current_employee.user_type == "partner" %>
+Add Your Company Logo
+    <%= form_tag "/employees/#{current_employee.id}" method: :post do %>
+      <input type="text-field" name="company_logo">
+    <% end %>
+        
+<% end %>
+
+
+<%= if current_employee.user_type == "employee" %>
+	<%= link_to 'Edit Homepage', '/home/edit' %>
+<% end %>
+
+
+<%= if current_employee.user_type == "admin" || if current_employee.user_type == "super_admin" %>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#guardians">Guardians</a></li>
+        <li><a data-toggle="tab" href="#volunteers">Volunteers</a></li>
+        <li><a data-toggle="tab" href="#partners">Partners</a></li>
+      </ul>
+
+        <div class="tab-content">
+            <div id="guardians" class="tab-pane fade in active">
+              <h3>Guardians</h3>
+              <table>
+                      <tr>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Bio</th>
+                          <th>Created At</th>
+                          <th>Status</th>
+                          <% if current_employee.user_type == "super_admin" %>
+                          <th>Update User</th>
+                          <th>Delete User</th>
+                          <% end %>
+                      </tr>
+                    <% @guardian_pending.each do | guardian | %>
+                            <tr>
+                                  <td>guardian.first_name</td>
+                                 <td>guardian.last_name</td>
+                                 <td><%= link_to "#{guardian.first_name guardian.last_name}", "/guardians/#{guardian.id}" %></td>
+                                 <td>guardian.created_at</td>
+                                 <td>guardian.status</td>
+                                  <% if current_employee.user_type == "super_admin" %>
+                                  <td><%= link_to "Update", "/guardians/#{guardian.id}/edit" %></td>
+                                  <td><%= link to "Delete", "/guardians/#{guardian.id}", method: :destroy %></td>
+                                  <% end %>
+
+                              </tr>
+                            <input type="Submit" name="Approve">    
+                    <% end %>
+                </table>
+            </div>
+            <div id="volunteers" class="tab-pane fade">
+              <h3>Volunteers</h3>
+                 <table>
+                     <tr>
+                         <th>First Name</th>
+                         <th>Last Name</th>
+                         <th>Bio</th>
+                         <th>Created At</th>
+                         <th>Status</th>
+                         <% if current_employee.user_type == "super_admin" %>
+                         <th>Update</th>
+                         <th>Delete</th>
+                         <% end %>
+                     </tr>
+                     <% @volunteer_pending.each do | volunteer | %>
+                             <tr>
+                                 <td>volunteer.first_name</td>
+                                  <td>volunteer.last_name</td>
+                                  <td><%= link_to '#{volunteer.first_name volunteer.last_name}', '/volunteers/#{volunteer.id}' %></td>
+                                  <td>volunteer.created_at</td>
+                                  <td>volunteer.status</td>                    
+                                  <% if current_employee.user_type == "super_admin" %>
+                                 <td><%= link_to "Update", "/volunteers/#{volunteer.id}/edit" %></td>
+                                 <td><%= link to "Delete", "/volunteers/#{volunteer.id}", method: :destroy %></td>
+                                 <% end %>
+                             </tr>
+                             <input type="Submit" name="Approve">    
+                     <% end %>
+                 </table>
+            </div>
+            <div id="partners" class="tab-pane fade in active">
+                  <h3>Partners</h3>
+                  <table>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Bio</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                            <% if current_employee.user_type == "super_admin" %>
+                            <th>Update</th>
+                            <th>Delete</th>
+                            <% end %>
+                        </tr>
+                        <% @partner_pending.each do | partner | %>
+                                <tr>
+                                    <td>partner.first_name</td>
+                                     <td>partner.last_name</td>
+                                     <td><%= link_to '#{partner.first_name partner.last_name}', '/partners/#{partner.id}' %></td>
+                                     <td>partner.created_at</td>
+                                     <td>partner.status</td>
+                                    <% if current_employee.user_type == "super_admin" %>
+                                    <td><%= link_to "Update", "/partners/#{partner.id}/edit" %></td>
+                                    <td><%= link to "Delete", "/partners/#{partner.id}", method: :destroy %></td>
+                                    <% end %>
+                                </tr>
+                                <input type="Submit" name="Approve">    
+                        <% end %>  
+                    </table>
+            </div>
+        </div>
+    </div>
+<% end %>
+
+

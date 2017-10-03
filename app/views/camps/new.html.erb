@@ -1,6 +1,7 @@
 <h1>Create a new camp</h1>
 
-<%= form_tag "/camp", method: :post do %>
+<%= form_tag "/camps", method: :post do %>
+
   <div>
     Title: <input type="text" name="title", value="<%= @camp.title %>">
   </div>
@@ -14,7 +15,10 @@
     Minimum number of students: <input type="integer" name="min_students", value="<%= @camp.min_students %>">
   </div>
   <div>
-    Address: <input type="text" name="address", value="<%= @camp.address %>">
+    Address 1: <input type="text" name="address_1", value="<%= @camp.address_1 %>">
+  </div>
+  <div>
+    Address 2: <input type="text" name="address_2", value="<%= @camp.address_2 %>">
   </div>
   <div>
     City: <input type="text" name="city", value="<%= @camp.city %>">

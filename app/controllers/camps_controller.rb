@@ -14,12 +14,13 @@ class CampsController < ApplicationController
                       description: params[:description],
                       max_students: params[:max_students],
                       min_students: params[:min_students],
-                      address: params[:address],
+                      address_1: params[:address_1],
+                      address_2: params[:address_2],
                       city: params[:city],
                       state: params[:state],
                       zip: params[:zip],
                       phone: params[:phone],
-                      instructor_id: params[:instructor_id],
+                      employee_id: params[:employee_id],
                       start_time: params[:start_time],
                       end_time: params[:end_time],
                       start_date: params[:start_date],
@@ -28,7 +29,7 @@ class CampsController < ApplicationController
                       )
     if @camp.save
       flash[:success] = "Camp successfully saved."
-      redirect_to "/camps/#{camp.id}"
+      redirect_to "/camps/#{@camp.id}"
     else
       render 'new.html.erb'
     end    
@@ -49,12 +50,13 @@ class CampsController < ApplicationController
                             description: params[:description],
                             max_students: params[:max_students],
                             min_students: params[:min_students],
-                            address: params[:address],
+                            address_1: params[:address_1],
+                            address_2: params[:address_2],
                             city: params[:city],
                             state: params[:state],
                             zip: params[:zip],
                             phone: params[:phone],
-                            instructor_id: params[:instructor_id],
+                            employee_id: params[:employee_id],
                             start_time: params[:start_time],
                             end_time: params[:end_time],
                             start_date: params[:start_date],

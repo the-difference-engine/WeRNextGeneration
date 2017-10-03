@@ -24,8 +24,6 @@
     <%= submit_tag " Update" %>
     <% end %>
 
-
-
 First Name: <%= @employee.first_name %>
 Last Name: <%= @employee.last_name %>
 Bio: <%= @employee.bio %>
@@ -38,5 +36,28 @@ Address: <%= @employee.address_2 %>
         <%= @employee.zip %>
 </div>
 <%= link_to "Edit Profile", "/employees/#{current_employee.id}/edit" %>
+
+
+
+<% if current_employee.user_type == "partner" %>
+Add Your Company Logo
+    <%= form_tag "/employees/#{current_employee.id}", method: :post do %>
+      <input type="text-field" name="company_logo">
+    <% end %>
+        
+<% end %>
+
+
+  <br>
+  <div>Add Your Company Logo</div>
+      <%= form_tag "/employees/#{@employee.id}", method: :post do %>
+      	<input type="text-field" name="company_logo">
+        <input type="submit" Submit>
+      <% end %>
+
+  <br>   
+
+  	<%= link_to 'Edit Homepage', '/home/edit' %>
+
 </div>
 

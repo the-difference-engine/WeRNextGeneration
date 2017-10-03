@@ -14,7 +14,7 @@ This website is for We'R'NextGeneration, a 501(c)(3) corporation in Gaithersburg
 4. Admins can approve or reject guardian and volunteer applications
 
 ### Application details:
-* Ruby
+* Ruby 
 * Rails
 * PostgreSQL
 * Hosted on Heroku
@@ -48,5 +48,5 @@ Devise: Used for a more secure user authentication
 
 CSV: Ability to download employee data from Index page. 
 
-RSpec: Installed for testing
+RSpec, Capybara, and Factory Girl: Installed for testing
 

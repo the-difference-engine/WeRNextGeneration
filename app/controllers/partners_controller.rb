@@ -11,7 +11,6 @@ class PartnersController < ApplicationController
   def create
     @partner = Partner.new(
                               company_name: params[:company_name],
-                              last_name: params[:last_name],
                               address_1: params[:address_1],
                               address_2: params[:address_2],
                               city: params[:city],

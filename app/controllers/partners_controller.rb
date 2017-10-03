@@ -19,33 +19,30 @@ class PartnersController < ApplicationController
                               zip: params[:zip],
                               country: params[:country]
                               )
-      if @guardian.save 
+      if @partner.save 
       flash[:success] = "Account Created"
       redirect_to "/partners#{current_partner.id}"
     else
       flash[:warning] = "Account information incorrect, try again"
-      redirect_to "/guardians/new"
+      redirect_to "/partners/new"
     end 
 
 
   end
 
   def show
-    @guardian = Guardian.find_by(id: params[:id])
+    @partner = Partner.find_by(id: params[:id])
 
   end
 
   def edit
-    @guardian = Guardian.find(params[:id])
+    @partner = Partner.find(params[:id])
   end
 
   def update
-    @guardian = Guardian.find(params[:id])
-    @guardian.assign_attributes(
-                              first_name: params[:first_name],
-                              last_name: params[:last_name],
-                              home_phone: params[:home_phone],
-                              cell_phone: params[:cell_phone],
+    @partner = Partner.find(params[:id])
+    @partner.assign_attributes(
+                              company_name: params[:company_name],
                               address_1: params[:address_1],
                               address_2: params[:address_2],
                               city: params[:city],
@@ -53,22 +50,22 @@ class PartnersController < ApplicationController
                               zip: params[:zip],
                               country: params[:country]
                               )
-    if @guardian.save
+    if @partner.save
       flash[:success] = "Account Updated"
-      redirect_to "/guardians/#{current_guardian.id}"
+      redirect_to "/partners/#{current_partner.id}"
     else 
       flash[:warning] = "Error with Information, try again"
-      redirect_to "/guardians/#{current_guardian.id}/edit"
+      redirect_to "/partners/#{current_partner.id}/edit"
     end
   end
 
   def destroy
-    if @guardian = Guardian.find(params[:id])
-       guardian.destroy
+    if @partner = Partner.find(params[:id])
+       partner.destroy
        flash[:sucess] = "Account Deleted"
     else
       flash[:warning] = "Error - try again"
-      redirect_to "/guardians/#{current_guardian.id}"
+      redirect_to "/partners/#{current_partner.id}"
     end 
   end
 end

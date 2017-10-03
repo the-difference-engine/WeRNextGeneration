@@ -8,9 +8,10 @@
 
     <%= f.file_field :image %>
     <%= submit_tag " Update" %>
+    <% end %>
 
 
-<h4>Name: <%= @partner.company_name %> <%= @partner.last_name %></h4>
+<h4>Name: <%= @partner.company_name %></h4>
 <h4>Address:</h4>
 <h5><%= @partner.address_1 %></h5> 
 <h5><%= @partner.address_2 %></h5>
@@ -30,8 +31,6 @@
   <h5><%= @partner.address_2 %></h5>
   <h5><%= @partner.city %>, <%= @partner.state %></h5>
   <h5><%= @partner.zip %></h5>
-
-
 
 
 </div>
